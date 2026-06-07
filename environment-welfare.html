@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>福利厚生・制度｜ENVIRONMENT｜株式会社IHIパーキングスクエア</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Crimson+Pro:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: #333; background: #fff; font-size: 16px; line-height: 1.8; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+    /* HEADER */
+    header { border-bottom: 1px solid #ccc; position: sticky; top: 0; background: #fff; z-index: 100; }
+    header .container { max-width: none; padding: 14px 40px; display: flex; align-items: center; position: relative; }
+    .logo { display: block; height: 32px; width: auto; }
+    nav { display: flex; gap: 20px; }
+    header nav { position: absolute; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 20px; pointer-events: none; }
+    header nav a, header nav div { pointer-events: auto; }
+    header .nav-students { margin-left: auto; margin-right: 10px; }
+    nav a { text-decoration: none; color: #333; font-size: 14px; font-family: 'Crimson Pro', serif; letter-spacing: 0; }
+    nav a.active { border-bottom: 2px solid #003E92; padding-bottom: 2px; color: #003E92; }
+    nav a:hover { color: #003E92; }
+    .nav-entry { background: #003E92; color: #fff; padding: 8px 20px; text-decoration: none; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    .nav-entry:hover { background: #002070; }
+    .nav-students { border: 1px solid #003E92; color: #003E92; background: transparent; padding: 8px 20px; text-decoration: none; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    .nav-students:hover { background: #e8eef8; }
+    /* NAV DROPDOWN */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown-trigger { color: #333; font-size: 14px; font-family: 'Crimson Pro', serif; cursor: default; }
+    .nav-dropdown-trigger::after { content: ' ▾'; font-size: 10px; }
+    .nav-dropdown-trigger.active { border-bottom: 2px solid #003E92; padding-bottom: 2px; color: #003E92; }
+    .nav-dropdown:hover .nav-dropdown-trigger { color: #003E92; }
+    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border: 1px solid #e0e0e0; min-width: 160px; z-index: 200; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 10px 16px; font-size: 13px; color: #333; text-decoration: none; font-family: 'Noto Sans JP', sans-serif; white-space: nowrap; border-bottom: 1px solid #f0f0f0; }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: #f7f8fa; color: #003E92; }
+
+    /* BREADCRUMB */
+    .breadcrumb-bar { border-bottom: 1px solid #e0e0e0; }
+    .breadcrumb-bar .container { padding-top: 12px; padding-bottom: 12px; font-size: 11px; color: #999; }
+    .breadcrumb-bar a { color: #999; text-decoration: none; }
+    .breadcrumb-bar a:hover { text-decoration: underline; }
+    .breadcrumb-bar span { margin: 0 6px; }
+
+    /* PAGE HERO */
+    .page-hero { background: #f7f8fa; }
+    .page-hero .container { padding-top: 64px; padding-bottom: 56px; }
+    .page-hero .en { font-family: 'Crimson Pro', serif; font-size: 15px; font-weight: 500; color: #003E92; margin-bottom: 4px; }
+    .page-hero .ja { font-family: 'Shippori Mincho B1', serif; font-size: 44px; font-weight: 500; color: #2E2E2E; line-height: 1.2; margin-bottom: 20px; }
+    .page-hero .lead { font-size: 15px; color: #555; max-width: 620px; line-height: 1.9; }
+
+    /* SECTIONS */
+    .section { padding: 80px 0; }
+    .section + .section { border-top: 1px solid #e0e0e0; }
+    .section-label { font-family: 'Crimson Pro', serif; font-size: 13px; color: #003E92; text-transform: uppercase; margin-bottom: 8px; }
+    .section-headline { font-family: 'Shippori Mincho B1', serif; font-size: 26px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; }
+    .section-body { font-size: 14px; color: #555; line-height: 1.9; max-width: 700px; margin-bottom: 48px; }
+
+    /* BENEFIT GRID */
+    .benefit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: #e0e0e0; }
+    .benefit-item { background: #fff; padding: 36px 24px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
+    .benefit-icon { color: #003E92; }
+    .benefit-icon .material-icons { font-size: 40px; }
+    .benefit-title { font-family: 'Shippori Mincho B1', serif; font-size: 14px; font-weight: 700; line-height: 1.6; color: #2E2E2E; }
+
+    /* SYSTEM TABLE */
+    .system-block { margin-bottom: 40px; }
+    .system-block-title { font-family: 'Shippori Mincho B1', serif; font-size: 18px; font-weight: 700; padding-bottom: 12px; border-bottom: 2px solid #003E92; margin-bottom: 0; }
+    .system-row { display: grid; grid-template-columns: 200px 1fr; border-bottom: 1px solid #e0e0e0; }
+    .system-row:last-child { border-bottom: none; }
+    .system-label { padding: 16px 20px; font-size: 13px; font-weight: bold; color: #555; background: #f7f8fa; }
+    .system-value { padding: 16px 20px; font-size: 14px; color: #333; line-height: 1.7; }
+    .system-note { font-size: 12px; color: #999; margin-top: 4px; }
+
+    /* PLACEHOLDER */
+    .system-value-flex { display: flex; gap: 24px; align-items: flex-start; }
+    .system-value-flex .text-content { flex: 1; }
+    .chart-placeholder { background: #e8eef8; border: 1px dashed #003E92; border-radius: 4px; padding: 48px 24px; text-align: center; font-size: 12px; color: #003E92; flex: 1; }
+    .logo-placeholder { background: #e8eef8; border: 1px dashed #003E92; border-radius: 4px; padding: 48px 24px; text-align: center; font-size: 12px; color: #003E92; flex: 1; }
+
+    /* RELATED NAV */
+    .related-nav { border-top: 1px solid #e0e0e0; padding: 48px 0; }
+    .related-nav .container { display: flex; gap: 20px; }
+    .related-link { flex: 1; display: block; border: 1px solid #e0e0e0; padding: 24px; text-decoration: none; color: #333; transition: background 0.2s; }
+    .related-link:hover { background: #f7f8fa; }
+    .related-link-label { font-size: 11px; color: #003E92; font-family: 'Crimson Pro', serif; text-transform: uppercase; margin-bottom: 6px; }
+    .related-link-title { font-family: 'Shippori Mincho B1', serif; font-size: 16px; font-weight: 700; }
+
+    /* ENTRY CTA */
+    .entry-cta { padding: 64px 0; text-align: center; background: #003E92; }
+    .entry-cta h2 { font-size: 20px; font-weight: bold; margin-bottom: 12px; }
+    .entry-cta p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 28px; }
+    .entry-cta a { display: inline-block; background: #fff; color: #003E92; padding: 14px 48px; text-decoration: none; font-size: 14px; }
+    .entry-cta a:hover { background: #e8eef8; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid #ccc; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; padding-bottom: 24px; font-size: 11px; color: #888; }
+    footer nav { display: flex; gap: 16px; }
+    footer nav a { font-size: 11px; color: #888; text-decoration: none; }
+    footer nav a:hover { color: #333; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+
+  <!-- DRAFT NOTICE -->
+  <div style="background:#c00;color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:bold;width:100%;box-sizing:border-box;">デザインではありません。内容や構成、素材などを確認するためのものです。</div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <a href="index.html"><img src="img/header_logo.png" alt="株式会社IHIパーキングスクエア" class="logo"></a>
+      <nav>
+        <a href="about.html">私たちを知る</a>
+        <a href="jobs.html">仕事を知る</a>
+        <a href="people.html">人を知る</a>
+        <a href="environment-welfare.html" class="active">福利厚生</a>
+        <a href="environment-local.html">地方での働き方</a>
+        <a href="students.html" target="_blank">サービスエンジニア職志望の方 <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2712px%27 viewBox=%270 -960 960 960%27 width=%2712px%27 fill=%27%231f1f1f%27%3E%3Cpath d=%27M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z%27/%3E%3C/svg%3E" style="width:12px;height:12px;vertical-align:middle;margin-left:3px;opacity:0.7;"></a>
+        <a href="recruit.html">募集要項</a>
+      </nav>
+      <a href="students.html" target="_blank" class="nav-students">高校生の方</a>
+      <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank" class="nav-entry">エントリー</a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <a href="index.html">TOP</a>
+      <span>/</span>
+      福利厚生・制度
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="en">Benefits &amp; Systems</div>
+      <div class="ja">福利厚生</div>
+    </div>
+  </div>
+
+  <!-- SECTION: 主な福利厚生 -->
+  <div class="section">
+    <div class="container">
+      <div class="section-headline">主な福利厚生</div>
+
+      <div class="benefit-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon"><span class="material-icons">apartment</span></div>
+          <div class="benefit-title">寮・社宅</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><span class="material-icons">event_available</span></div>
+          <div class="benefit-title">年間休日125日以上</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><span class="material-icons">beach_access</span></div>
+          <div class="benefit-title">長期休暇</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><span class="material-icons">school</span></div>
+          <div class="benefit-title">資格取得支援</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><span class="material-icons">child_care</span></div>
+          <div class="benefit-title">時短勤務・産休育休</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><span class="material-icons">schedule</span></div>
+          <div class="benefit-title">フレックス（職種による）</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><span class="material-icons">elderly</span></div>
+          <div class="benefit-title">介護支援制度あり</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><span class="material-icons">family_restroom</span></div>
+          <div class="benefit-title">チャイルドケア休暇</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><span class="material-icons">laptop</span></div>
+          <div class="benefit-title">リモートワーク（職種による）</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><span class="material-icons">cabin</span></div>
+          <div class="benefit-title">保養所</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><span class="material-icons">crib</span></div>
+          <div class="benefit-title">企業主導型保育園あり</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><span class="material-icons">trending_up</span></div>
+          <div class="benefit-title">持ち株会</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: 働き方を支える制度 -->
+  <div class="section" style="background: #f7f8fa;">
+    <div class="container">
+      <div class="section-headline">働き方を支える制度</div>
+
+      <!-- 休日・休暇 -->
+      <div class="system-block">
+        <div class="system-block-title">休日・休暇</div>
+        <div class="system-row">
+          <div class="system-label">年間休日</div>
+          <div class="system-value">125日以上</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">長期休暇</div>
+          <div class="system-value">GW休暇・夏季休暇・盆休暇・年末年始休暇<br>（ダミー文章）年間を通じてまとまった休みを取得しやすい環境を整えています。プライベートの充実や家族との時間を大切にできる働き方を支援します。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">年次有給休暇</div>
+          <div class="system-value">22日（初年度より付与）</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">時間単位年休</div>
+          <div class="system-value">（ダミー文章）有給休暇を1時間単位で取得できる制度です。通院や子どもの行事など、短時間の用事にも柔軟に対応でき、休暇を無駄なく活用できます。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">復活年休</div>
+          <div class="system-value">（ダミー文章）時効により消滅した有給休暇を積み立て、一定の条件のもとで再利用できる制度です。病気療養や介護など、いざというときのために備えられます。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">その他特別休暇</div>
+          <div class="system-value">（ダミー文章）慶弔休暇やリフレッシュ休暇など、ライフイベントや節目に応じた特別休暇を設けています。社員それぞれの事情に合わせて柔軟に活用できます。</div>
+        </div>
+      </div>
+
+      <!-- 働きやすい環境支援 -->
+      <div class="system-block">
+        <div class="system-block-title">働きやすい環境支援</div>
+        <div class="system-row">
+          <div class="system-label">リモートワーク制度</div>
+          <div class="system-value">（ダミー文章）職種や業務内容に応じて在宅勤務を導入しています。通勤負担を軽減しながら、集中しやすい環境で生産性の高い働き方を実現できます。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">フレックス制度</div>
+          <div class="system-value">（ダミー文章）コアタイムを設けたうえで、始業・終業時刻を柔軟に選択できます。生活リズムや家庭の事情に合わせた自分らしい働き方を支援します。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">副業制度</div>
+          <div class="system-value">（ダミー文章）会社が認める範囲での副業・兼業が可能です。社外での経験やスキルを本業にも活かしながら、多様なキャリアを描くことができます。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">昼食</div>
+          <div class="system-value">本社勤務及び沼津勤務の社員は（一部会社負担）昼食支給あり。他拠点は昼食相当分の福利補助手当支給あり</div>
+        </div>
+      </div>
+
+      <!-- 住宅制度 -->
+      <div class="system-block">
+        <div class="system-block-title">住宅制度</div>
+        <div class="system-row">
+          <div class="system-label">寮</div>
+          <div class="system-value">
+            <div class="system-value-flex">
+              <div class="text-content">（ダミー文章）入社時の住まいを確保しやすいよう、独身寮を用意しています。生活費を抑えながら安心してスタートでき、同期や先輩との交流も生まれる環境です。</div>
+              <div class="chart-placeholder">図表を入力予定</div>
+            </div>
+          </div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">社宅</div>
+          <div class="system-value">
+            <div class="system-value-flex">
+              <div class="text-content">（ダミー文章）転勤や遠方からの採用者向けに借上社宅制度を設けています。家賃の一部を会社が負担するため、新生活の費用面での不安を軽減できます。</div>
+              <div class="chart-placeholder">図表を入力予定</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 両立支援 -->
+      <div class="system-block">
+        <div class="system-block-title">両立支援</div>
+        <div class="system-row">
+          <div class="system-label">育休・産休制度</div>
+          <div class="system-value">
+            <div class="system-value-flex">
+              <div class="text-content">（ダミー文章）産前・産後休業および育児休業を取得しやすい環境を整えています。復職後も時短勤務などを組み合わせながら、長く活躍し続けられます。</div>
+              <div class="chart-placeholder">図表を入力予定</div>
+            </div>
+          </div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">企業主導型保育園</div>
+          <div class="system-value">（ダミー文章）IHIグループが提携する企業主導型保育園を利用できます。保育先探しの不安を解消し、安心して職場復帰できる環境を整えています。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">教育資金融資制度</div>
+          <div class="system-value">（ダミー文章）子どもの進学時に必要な教育資金を低利で融資する制度です。大学・専門学校への進学をサポートし、家計の負担を軽減できます。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">介護支援制度</div>
+          <div class="system-value">（ダミー文章）家族の介護が必要になった際に、休暇取得や短時間勤務を活用できます。仕事と介護を両立しながら、安心してキャリアを継続できる環境を整えています。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">時短勤務制度</div>
+          <div class="system-value">（ダミー文章）育児・介護などの事情に応じて所定労働時間を短縮できます。子どもが一定年齢に達するまでなど、長期にわたって継続して利用できます。</div>
+        </div>
+      </div>
+
+      <!-- 成長支援 -->
+      <div class="system-block">
+        <div class="system-block-title">成長支援</div>
+        <div class="system-row">
+          <div class="system-label">階層別研修</div>
+          <div class="system-value">
+            <div class="system-value-flex">
+              <div class="text-content">（ダミー文章）入社年次や役職に応じた研修プログラムを体系的に用意しています。各ステージで必要なスキルと知識を計画的に身につけられます。</div>
+              <div class="chart-placeholder">図表を入力予定</div>
+            </div>
+          </div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">IHIグループ選択型研修</div>
+          <div class="system-value">
+            <div class="system-value-flex">
+              <div class="text-content">（ダミー文章）IHIグループが提供する多彩な研修から、自分の成長目標に合ったプログラムを選択して受講できます。専門スキルからビジネス基礎まで幅広く対応しています。</div>
+              <div class="chart-placeholder">図表を入力予定</div>
+            </div>
+          </div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">指導員制度</div>
+          <div class="system-value">（ダミー文章）入社後は先輩社員が指導員として個別にサポートします。業務の進め方や社内ルールを丁寧に指導し、早期の職場定着と成長を支援します。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">キャリア形成支援</div>
+          <div class="system-value">（ダミー文章）定期的な面談や自己申告制度を通じて、個人のキャリアビジョンに沿った配置・育成を行っています。長期的な視点で一人ひとりの成長をサポートします。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">資格支援制度</div>
+          <div class="system-value">（ダミー文章）業務に関連する資格の取得を会社がサポートします。受験費用の補助や合格奨励金の支給など、チャレンジしやすい環境を整えています。</div>
+        </div>
+      </div>
+
+      <!-- 資産形成 -->
+      <div class="system-block">
+        <div class="system-block-title">資産形成</div>
+        <div class="system-row">
+          <div class="system-label">財形貯蓄制度</div>
+          <div class="system-value">（ダミー文章）給与から自動的に積み立てができる財形貯蓄制度を導入しています。住宅取得や老後資金など、目的に合わせた計画的な貯蓄をサポートします。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">企業型拠出年金制度</div>
+          <div class="system-value">（ダミー文章）会社が掛金を拠出する企業型確定拠出年金（DC）を導入しています。老後の資産形成を会社がサポートする仕組みで、将来の安心につながります。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">確定拠出年金制度</div>
+          <div class="system-value">（ダミー文章）自身で運用先を選択しながら老後資金を積み立てられる制度です。節税メリットもあり、長期的な視点での資産形成に役立てられます。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">持ち株会</div>
+          <div class="system-value">（ダミー文章）毎月の給与から一定額を積み立て、自社グループの株式を購入できます。会社からの奨励金上乗せもあり、資産形成と会社の成長を共に享受できます。</div>
+        </div>
+      </div>
+
+      <!-- 健康 -->
+      <div class="system-block">
+        <div class="system-block-title">健康</div>
+        <div class="system-row">
+          <div class="system-label">人間ドック補助</div>
+          <div class="system-value">（ダミー文章）定期健康診断に加え、人間ドック受診費用の一部を会社が補助します。早期発見・早期治療を促し、社員が長く健康で働き続けられる環境を支援します。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">インフルエンザ予防補助</div>
+          <div class="system-value">（ダミー文章）毎年秋に実施するインフルエンザ予防接種の費用を会社が補助します。職場での感染拡大防止と、社員一人ひとりの健康を守る取り組みです。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">禁煙に関する取り組み</div>
+          <div class="system-value">（ダミー文章）健康経営の一環として、禁煙外来費用の補助や職場内禁煙区域の整備など、禁煙を支援するさまざまな取り組みを推進しています。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">健康経営優良法人</div>
+          <div class="system-value">
+            <div class="system-value-flex">
+              <div class="text-content">（ダミー文章）社員の健康管理を経営的な視点で捉え、戦略的に推進しています。健康経営優良法人として認定を受けており、継続的な健康増進活動を実施しています。</div>
+              <div class="logo-placeholder">ロゴ画像を入力予定</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- その他 -->
+      <div class="system-block">
+        <div class="system-block-title">その他</div>
+        <div class="system-row">
+          <div class="system-label">永年勤続表彰制度</div>
+          <div class="system-value">（ダミー文章）一定年数以上勤続した社員を表彰し、記念品や特別休暇を贈呈します。長年にわたる貢献に感謝し、さらなる活躍を後押しする制度です。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">保養所</div>
+          <div class="system-value">（ダミー文章）IHIグループの保養所を低価格で利用できます。リゾート地や温泉地など複数の施設から選べ、社員とそのご家族のリフレッシュを支援します。</div>
+        </div>
+        <div class="system-row">
+          <div class="system-label">労働組合</div>
+          <div class="system-value">あり</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTRY CTA -->
+  <div class="entry-cta">
+    <p>株式会社IHIパーキングスクエアへのエントリーはこちらから</p>
+    <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank">エントリーする</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <a href="index.html" style="font-size:12px; font-weight:bold; text-decoration:none; color:#333;">株式会社IHIパーキングスクエア</a>
+      <nav>
+        <a href="about.html">私たちを知る</a>
+        <a href="jobs.html">仕事を知る</a>
+        <a href="people.html">人を知る</a>
+        <a href="environment-welfare.html">働く環境・制度</a>
+        <a href="recruit.html">募集要項</a>
+        <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank">エントリー</a>
+      </nav>
+      <p>&copy; 株式会社IHIパーキングスクエア</p>
+    </div>
+  </footer>
+
+</body>
+</html>

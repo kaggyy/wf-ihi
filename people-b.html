@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鈴木 彩花 - 制御設計｜PEOPLE｜株式会社IHIパーキングスクエア</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Crimson+Pro:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: #333; background: #fff; font-size: 16px; line-height: 1.8; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+    header { border-bottom: 1px solid #ccc; position: sticky; top: 0; background: #fff; z-index: 100; }
+    header .container { max-width: none; padding: 14px 40px; display: flex; align-items: center; position: relative; }
+    .logo { display: block; height: 32px; width: auto; }
+    nav { display: flex; gap: 20px; }
+    header nav { position: absolute; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 20px; pointer-events: none; }
+    header nav a, header nav div { pointer-events: auto; }
+    header .nav-students { margin-left: auto; margin-right: 10px; }
+    nav a { text-decoration: none; color: #333; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    nav a.active { border-bottom: 2px solid #003E92; padding-bottom: 2px; color: #003E92; }
+    nav a:hover { color: #003E92; }
+    .nav-entry { background: #003E92; color: #fff; padding: 8px 20px; text-decoration: none; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    .nav-entry:hover { background: #002070; }
+    .nav-students { border: 1px solid #003E92; color: #003E92; background: transparent; padding: 8px 20px; text-decoration: none; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    .nav-students:hover { background: #e8eef8; }
+    /* NAV DROPDOWN */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown-trigger { color: #333; font-size: 14px; font-family: 'Crimson Pro', serif; cursor: default; }
+    .nav-dropdown-trigger::after { content: ' ▾'; font-size: 10px; }
+    .nav-dropdown-trigger.active { border-bottom: 2px solid #003E92; padding-bottom: 2px; color: #003E92; }
+    .nav-dropdown:hover .nav-dropdown-trigger { color: #003E92; }
+    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border: 1px solid #e0e0e0; min-width: 160px; z-index: 200; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 10px 16px; font-size: 13px; color: #333; text-decoration: none; font-family: 'Noto Sans JP', sans-serif; white-space: nowrap; border-bottom: 1px solid #f0f0f0; }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: #f7f8fa; color: #003E92; }
+    .breadcrumb-bar { border-bottom: 1px solid #e0e0e0; }
+    .breadcrumb-bar .container { padding-top: 12px; padding-bottom: 12px; font-size: 11px; color: #999; }
+    .breadcrumb-bar a { color: #999; text-decoration: none; }
+    .breadcrumb-bar a:hover { text-decoration: underline; }
+    .breadcrumb-bar span { margin: 0 6px; }
+    .img { background: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px; }
+    .hero { padding: 64px 0; }
+    .hero .container { display: grid; grid-template-columns: 1fr 400px; gap: 64px; align-items: center; }
+    .hero-name { font-family: 'Shippori Mincho B1', serif; font-size: 36px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    .hero-name-en { font-family: 'Crimson Pro', serif; font-size: 14px; color: #999; margin-bottom: 32px; }
+    .hero-meta { display: flex; flex-direction: column; gap: 10px; padding-top: 32px; border-top: 1px solid #e0e0e0; }
+    .hero-meta-row { display: grid; grid-template-columns: 100px 1fr; font-size: 13px; }
+    .hero-meta-label { color: #999; }
+    .hero-meta-value { color: #333; font-weight: bold; }
+    .hero-photo { aspect-ratio: 3/4; }
+    .section { padding: 80px 0; }
+    .section-gray { background: #f5f5f5; }
+    .qa-block { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .qa-block.reverse { direction: rtl; }
+    .qa-block.reverse > * { direction: ltr; }
+    .qa-num { font-family: 'Crimson Pro', serif; font-size: 13px; font-weight: bold; color: #003E92; letter-spacing: 0.15em; margin-bottom: 16px; }
+    .qa-question { font-family: 'Shippori Mincho B1', serif; font-size: 20px; font-weight: 700; line-height: 1.6; margin-bottom: 24px; color: #2E2E2E; }
+    .qa-answer { font-size: 16px; color: #555; line-height: 2; }
+    .qa-image { aspect-ratio: 4/3; }
+    .timeline-title { font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 700; margin-bottom: 40px; }
+    .timeline { display: flex; flex-direction: column; border: 1px solid #e0e0e0; }
+    .timeline-item { display: grid; grid-template-columns: 80px 1fr; border-bottom: 1px solid #e0e0e0; }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-time { font-family: 'Crimson Pro', serif; font-size: 14px; font-weight: bold; color: #003E92; padding: 20px; border-right: 1px solid #e0e0e0; background: #f5f5f5; display: flex; align-items: center; }
+    .timeline-content { padding: 20px 24px; font-size: 14px; color: #333; line-height: 1.8; }
+    .pagination { border-top: 1px solid #e0e0e0; padding: 40px 0; }
+    .pagination .container { display: flex; justify-content: space-between; align-items: center; }
+    .page-nav { text-decoration: none; color: #333; font-size: 13px; }
+    .page-nav:hover { color: #003E92; }
+    .page-nav-label { font-size: 11px; color: #999; display: block; margin-bottom: 4px; }
+    .page-nav-name { font-size: 14px; font-weight: bold; }
+    .back-to-list { font-family: 'Crimson Pro', serif; font-size: 13px; text-decoration: none; color: #003E92; }
+    .entry-cta { padding: 64px 0; text-align: center; background: #003E92; }
+    .entry-cta h2 { font-size: 20px; font-weight: bold; margin-bottom: 12px; }
+    .entry-cta p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 28px; }
+    .entry-cta a { display: inline-block; background: #fff; color: #003E92; padding: 14px 48px; text-decoration: none; font-size: 14px; }
+    .entry-cta a:hover { background: #e8eef8; }
+    footer { border-top: 1px solid #ccc; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; padding-bottom: 24px; font-size: 11px; color: #888; }
+    footer nav { display: flex; gap: 16px; }
+    footer nav a { font-size: 11px; color: #888; text-decoration: none; }
+    footer nav a:hover { color: #333; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- DRAFT NOTICE -->
+  <div style="background:#c00;color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:bold;width:100%;box-sizing:border-box;">デザインではありません。内容や構成、素材などを確認するためのものです。</div>
+
+  <header>
+    <div class="container">
+      <a href="index.html"><img src="img/header_logo.png" alt="株式会社IHIパーキングスクエア" class="logo"></a>
+      <nav>
+        <a href="about.html">私たちを知る</a><a href="jobs.html">仕事を知る</a><a href="people.html" class="active">人を知る</a><a href="environment-welfare.html">福利厚生</a><a href="environment-local.html">地方での働き方</a><a href="students.html" target="_blank">サービスエンジニア職志望の方 <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2712px%27 viewBox=%270 -960 960 960%27 width=%2712px%27 fill=%27%231f1f1f%27%3E%3Cpath d=%27M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z%27/%3E%3C/svg%3E" style="width:12px;height:12px;vertical-align:middle;margin-left:3px;opacity:0.7;"></a><a href="recruit.html">募集要項</a>
+      </nav>
+      <a href="students.html" target="_blank" class="nav-students">高校生の方</a>
+      <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank" class="nav-entry">エントリー</a>
+    </div>
+  </header>
+  <div class="breadcrumb-bar">
+    <div class="container"><a href="index.html">TOP</a><span>/</span><a href="people.html">人を知る</a><span>/</span>鈴木 彩花（仮）</div>
+  </div>
+
+  <div class="hero">
+    <div class="container">
+      <div>
+        <div class="hero-name">鈴木 彩花<span style="font-size:18px; color:#999;">（仮）</span></div>
+        <div class="hero-name-en">SUZUKI Ayaka</div>
+        <div class="hero-meta">
+          <div class="hero-meta-row"><span class="hero-meta-label">所属</span><span class="hero-meta-value">制御設計部</span></div>
+          <div class="hero-meta-row"><span class="hero-meta-label">職種</span><span class="hero-meta-value">制御設計</span></div>
+          <div class="hero-meta-row"><span class="hero-meta-label">入社年</span><span class="hero-meta-value">2018年入社</span></div>
+          <div class="hero-meta-row"><span class="hero-meta-label">勤務地</span><span class="hero-meta-value">沼津</span></div>
+          <div class="hero-meta-row"><span class="hero-meta-label">出身学部</span><span class="hero-meta-value">○○大学 電気電子工学科（仮）</span></div>
+        </div>
+      </div>
+      <div class="hero-photo img">人物メイン写真</div>
+    </div>
+  </div>
+
+  <div class="section section-gray">
+    <div class="container">
+      <div class="qa-block">
+        <div>
+          <div class="qa-num">Q 01</div>
+          <div class="qa-question">入社動機を教えてください。</div>
+          <div class="qa-answer">（250字程度）電気電子工学を学ぶなかで、自分の専門知識を日常生活に密着した製品の設計に活かしたいと考えていました。IHIパーキングスクエアは機械式駐車装置という特殊な製品を扱いながらも、電気設計の役割が大きいと知り興味を持ちました。面接で「電気系の人材を積極的に育てたい」という話を聞き、入社を決めました。</div>
+        </div>
+        <div class="qa-image img">Q01 イメージ写真</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="qa-block reverse">
+        <div>
+          <div class="qa-num">Q 02</div>
+          <div class="qa-question">現在の仕事内容を教えてください。</div>
+          <div class="qa-answer">（250字程度）機械式駐車装置の電気系統の詳細設計を担当しています。制御盤の回路設計、センサーの選定・配線図の作成、安全回路の設計が主な業務です。装置の動きを制御するプログラムの仕様検討にも関わっており、機械系エンジニアと密に連携しながら設計を進めています。安全に関わる部分が多いため、責任感を持って取り組んでいます。</div>
+        </div>
+        <div class="qa-image img">Q02 イメージ写真</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-gray">
+    <div class="container">
+      <div class="qa-block">
+        <div>
+          <div class="qa-num">Q 03</div>
+          <div class="qa-question">仕事の難しさ・やりがいを教えてください。</div>
+          <div class="qa-answer">（250字程度）難しさは、機械系・ソフトウェア系・安全規格と、複数の専門分野にまたがる知識が求められることです。最初は覚えることが多く苦労しましたが、今では横断的な知識が自分の強みになっています。装置が正常に動作したとき、また現場の方から「使いやすい」と言ってもらえたときに、大きなやりがいを感じます。</div>
+        </div>
+        <div class="qa-image img">Q03 イメージ写真</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="qa-block reverse">
+        <div>
+          <div class="qa-num">Q 04</div>
+          <div class="qa-question">入社後に成長を実感した経験を教えてください。</div>
+          <div class="qa-answer">（250字程度）入社3年目に、新型装置の制御盤設計を初めてリードする機会をいただきました。仕様の整理から部品選定、レビュー対応まで一連のプロセスを経験したことで、設計全体を俯瞰する力がついたと感じています。また、関係部署を巻き込んで進める調整力も、この経験で大きく伸びました。</div>
+        </div>
+        <div class="qa-image img">Q04 イメージ写真</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-gray">
+    <div class="container">
+      <div class="qa-block">
+        <div>
+          <div class="qa-num">Q 05</div>
+          <div class="qa-question">今後挑戦したいこと・夢を教えてください。</div>
+          <div class="qa-answer">（250字程度）EV対応や省エネ制御など、次世代の駐車装置に求められる電気設計のスペシャリストになりたいと考えています。また、女性エンジニアとして後輩の育成にも力を入れていきたいです。技術職のキャリアパスを広げる取り組みに積極的に関わり、会社全体の技術力向上に貢献したいと思っています。</div>
+        </div>
+        <div class="qa-image img">Q05 イメージ写真</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="timeline-title">代表的な1日の流れ</div>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-time">8:30</div><div class="timeline-content">出勤・メール確認・朝礼</div></div>
+        <div class="timeline-item"><div class="timeline-time">9:00</div><div class="timeline-content">制御盤の回路設計・配線図作成</div></div>
+        <div class="timeline-item"><div class="timeline-time">12:00</div><div class="timeline-content">昼休憩</div></div>
+        <div class="timeline-item"><div class="timeline-time">13:00</div><div class="timeline-content">機械系チームとの仕様打ち合わせ</div></div>
+        <div class="timeline-item"><div class="timeline-time">15:00</div><div class="timeline-content">設計レビュー・安全回路の確認</div></div>
+        <div class="timeline-item"><div class="timeline-time">16:30</div><div class="timeline-content">図面最終確認・資料提出</div></div>
+        <div class="timeline-item"><div class="timeline-time">17:30</div><div class="timeline-content">業務終了・退社</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="container">
+      <a href="people-a.html" class="page-nav"><span class="page-nav-label">PREV</span><span class="page-nav-name">← 田中 健太（仮）</span></a>
+      <a href="people.html" class="back-to-list">一覧に戻る</a>
+      <a href="people-c.html" class="page-nav"><span class="page-nav-label">NEXT</span><span class="page-nav-name">山本 拓也（仮） →</span></a>
+    </div>
+  </div>
+
+  <div class="entry-cta">
+    <p>株式会社IHIパーキングスクエアへのエントリーはこちらから</p>
+    <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank">エントリーする</a>
+  </div>
+  <footer>
+    <div class="container">
+      <a href="index.html" style="font-size:12px; font-weight:bold; text-decoration:none; color:#333;">株式会社IHIパーキングスクエア</a>
+      <nav><a href="about.html">私たちを知る</a><a href="jobs.html">仕事を知る</a><a href="people.html">人を知る</a><a href="environment-welfare.html">働く環境・制度</a><a href="students.html" target="_blank">サービスエンジニア職志望の方 <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2712px%27 viewBox=%270 -960 960 960%27 width=%2712px%27 fill=%27%231f1f1f%27%3E%3Cpath d=%27M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z%27/%3E%3C/svg%3E" style="width:12px;height:12px;vertical-align:middle;margin-left:3px;opacity:0.7;"></a><a href="recruit.html">募集要項</a><a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank">エントリー</a></nav>
+      <p>&copy; 株式会社IHIパーキングスクエア</p>
+    </div>
+  </footer>
+</body>
+</html>

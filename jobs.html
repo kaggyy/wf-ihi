@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仕事を知る｜株式会社IHIパーキングスクエア</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Crimson+Pro:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: #333; background: #fff; font-size: 16px; line-height: 1.8; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+    /* HEADER */
+    header { border-bottom: 1px solid #ccc; position: sticky; top: 0; background: #fff; z-index: 100; }
+    header .container { max-width: none; padding: 14px 40px; display: flex; align-items: center; position: relative; }
+    .logo { display: block; height: 32px; width: auto; }
+    nav { display: flex; gap: 20px; }
+    header nav { position: absolute; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 20px; pointer-events: none; }
+    header nav a, header nav div { pointer-events: auto; }
+    header .nav-students { margin-left: auto; margin-right: 10px; }
+    nav a { text-decoration: none; color: #333; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    nav a.active { border-bottom: 2px solid #003E92; padding-bottom: 2px; color: #003E92; }
+    nav a:hover { color: #003E92; }
+    .nav-entry { background: #003E92; color: #fff; padding: 8px 20px; text-decoration: none; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    .nav-entry:hover { background: #002070; }
+    .nav-students { border: 1px solid #003E92; color: #003E92; background: transparent; padding: 8px 20px; text-decoration: none; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    .nav-students:hover { background: #e8eef8; }
+    /* NAV DROPDOWN */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown-trigger { color: #333; font-size: 14px; font-family: 'Crimson Pro', serif; cursor: default; }
+    .nav-dropdown-trigger::after { content: ' ▾'; font-size: 10px; }
+    .nav-dropdown-trigger.active { border-bottom: 2px solid #003E92; padding-bottom: 2px; color: #003E92; }
+    .nav-dropdown:hover .nav-dropdown-trigger { color: #003E92; }
+    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border: 1px solid #e0e0e0; min-width: 160px; z-index: 200; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 10px 16px; font-size: 13px; color: #333; text-decoration: none; font-family: 'Noto Sans JP', sans-serif; white-space: nowrap; border-bottom: 1px solid #f0f0f0; }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: #f7f8fa; color: #003E92; }
+
+    /* BREADCRUMB */
+    .breadcrumb-bar { border-bottom: 1px solid #e0e0e0; }
+    .breadcrumb-bar .container { padding-top: 12px; padding-bottom: 12px; font-size: 11px; color: #999; }
+    .breadcrumb-bar a { color: #999; text-decoration: none; }
+    .breadcrumb-bar a:hover { text-decoration: underline; }
+    .breadcrumb-bar span { margin: 0 6px; }
+
+    /* PAGE HERO */
+    .page-hero .container { padding-top: 48px; padding-bottom: 40px; }
+    .page-hero .en { font-family: 'Crimson Pro', serif; font-size: 18px; font-weight: 500; color: #003E92; margin-bottom: 0; }
+    .page-hero .ja { font-family: 'Shippori Mincho B1', serif; font-size: 50px; font-weight: 500; color: #2E2E2E; line-height: 1.2; }
+
+    /* SECTION */
+    .section { padding: 80px 0; }
+    .section-gray { background: #f5f5f5; }
+    .section-title { font-family: 'Crimson Pro', serif; font-size: 14px; font-weight: bold; color: #003E92; margin-bottom: 8px; text-transform: uppercase; }
+    .section-headline { font-family: 'Shippori Mincho B1', serif; font-size: 26px; font-weight: 700; margin-bottom: 48px; line-height: 1.4; }
+
+    /* SCOPE — 業務範囲プレースホルダー */
+    .scope-area {
+      background: #e0e0e0;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 13px;
+    }
+
+    /* JOB LIST */
+    .job-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .job-domain { margin-bottom: 20px; }
+    .job-domain-label { font-size: 11px; color: #999; margin-bottom: 6px; }
+    .job-domain-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .job-domain-tag { font-size: 11px; color: #003E92; border: 1px solid #003E92; padding: 2px 10px; }
+    .job-recommend { background: #f7f8fa; padding: 16px 20px; margin-top: 0; margin-bottom: 0; }
+    .job-recommend-label { font-size: 11px; font-weight: bold; color: #003E92; margin-bottom: 8px; }
+    .job-recommend-list { list-style: none; padding: 0; margin: 0; }
+    .job-recommend-list li { font-size: 13px; color: #555; line-height: 1.8; padding-left: 1em; position: relative; }
+    .job-recommend-list li::before { content: "・"; position: absolute; left: 0; }
+    .job-item {
+      background: #fff;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+    .job-title {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      color: #2E2E2E;
+    }
+    .job-desc {
+      font-size: 14px;
+      color: #555;
+      line-height: 2;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+    .job-interview-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: #333;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 20px;
+      margin-top: auto;
+    }
+    .job-interview-card:hover { opacity: 0.7; }
+    .interview-photo {
+      width: 64px;
+      height: 64px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #bbb;
+    }
+    .interview-role { font-size: 12px; color: #003E92; margin-bottom: 4px; }
+    .interview-year { font-size: 13px; font-weight: bold; color: #333; }
+    .interview-label { font-size: 11px; color: #999; margin-bottom: 12px; margin-top: auto; padding-top: 20px; }
+    .interview-cards { display: flex; gap: 12px; }
+    .job-interview-card { border-top: none; padding-top: 0; margin-top: 0; }
+
+    /* JOB ANCHOR NAV */
+    .job-nav { display: flex; gap: 16px; margin-bottom: 56px; }
+    .job-nav-link {
+      display: inline-block;
+      padding: 12px 36px;
+      border: 1px solid #003E92;
+      color: #003E92;
+      text-decoration: none;
+      font-size: 14px;
+      font-family: 'Noto Sans JP', sans-serif;
+      transition: background 0.2s, color 0.2s;
+    }
+    .job-nav-link:hover { background: #003E92; color: #fff; }
+
+    /* JOB CATEGORY */
+    .job-category { margin-bottom: 72px; }
+    .job-category-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #003E92;
+    }
+    .job-category-en { font-family: 'Crimson Pro', serif; font-size: 13px; color: #003E92; text-transform: uppercase; }
+    .job-category-title { font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 700; color: #2E2E2E; }
+
+    /* BTN OUTLINE */
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid #333;
+      padding: 12px 40px;
+      font-size: 12px;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn-outline:hover { background: #003E92; color: #fff; border-color: #003E92; }
+
+    /* ENTRY CTA */
+    .entry-cta { padding: 64px 0; text-align: center; background: #003E92; }
+    .entry-cta h2 { font-size: 20px; font-weight: bold; margin-bottom: 12px; }
+    .entry-cta p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 28px; }
+    .entry-cta a { display: inline-block; background: #fff; color: #003E92; padding: 14px 48px; text-decoration: none; font-size: 14px; }
+    .entry-cta a:hover { background: #e8eef8; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid #ccc; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; padding-bottom: 24px; font-size: 11px; color: #888; }
+    footer nav { display: flex; gap: 16px; }
+    footer nav a { font-size: 11px; color: #888; text-decoration: none; }
+    footer nav a:hover { color: #333; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+
+  <!-- DRAFT NOTICE -->
+  <div style="background:#c00;color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:bold;width:100%;box-sizing:border-box;">デザインではありません。内容や構成、素材などを確認するためのものです。</div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <a href="index.html"><img src="img/header_logo.png" alt="株式会社IHIパーキングスクエア" class="logo"></a>
+      <nav>
+        <a href="about.html">私たちを知る</a>
+        <a href="jobs.html" class="active">仕事を知る</a>
+        <a href="people.html">人を知る</a>
+        <a href="environment-welfare.html">福利厚生</a>
+        <a href="environment-local.html">地方での働き方</a>
+        <a href="students.html" target="_blank">サービスエンジニア職志望の方 <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2712px%27 viewBox=%270 -960 960 960%27 width=%2712px%27 fill=%27%231f1f1f%27%3E%3Cpath d=%27M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z%27/%3E%3C/svg%3E" style="width:12px;height:12px;vertical-align:middle;margin-left:3px;opacity:0.7;"></a>
+        <a href="recruit.html">募集要項</a>
+      </nav>
+      <a href="students.html" target="_blank" class="nav-students">高校生の方</a>
+      <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank" class="nav-entry">エントリー</a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <a href="index.html">TOP</a>
+      <span>/</span>
+      仕事を知る
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="en">JOBS</div>
+      <div class="ja">仕事を知る</div>
+    </div>
+  </div>
+
+  <!-- ステートメント -->
+  <div style="padding: 72px 0 64px; text-align: left;">
+    <div class="container">
+      <p style="font-family: 'Shippori Mincho B1', serif; font-size: 32px; font-weight: 700; color: #2E2E2E; line-height: 1.5; margin-bottom: 12px;">世界を変える力を創造する連携プレー</p>
+      <p style="font-family: 'Shippori Mincho B1', serif; font-size: 20px; font-weight: 500; color: #555; line-height: 1.6; margin-bottom: 48px;">職種の垣根を超えて力を一つにする</p>
+      <p style="font-size: 15px; color: #333; letter-spacing: 0.05em;">あなたならどの職種で活躍しますか？</p>
+    </div>
+  </div>
+
+  <!-- 業務範囲 -->
+  <div class="section" style="padding-top: 0; padding-bottom: 80px;">
+    <div class="container">
+      <div class="section-headline">業務範囲</div>
+      <div style="position: relative; display: inline-block; width: 100%;">
+        <img src="img/flow.png" alt="業務範囲図" style="width: 100%; display: block;">
+        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center;">
+          <span style="color: #fff; font-size: 15px; letter-spacing: 0.1em;">ヒアリングをもとに作成します</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 職種一覧 -->
+  <div class="section section-gray" style="padding: 80px 0;">
+    <div class="container">
+      <div class="section-headline">職種紹介</div>
+
+      <!-- アンカーナビ -->
+      <div class="job-nav">
+        <a href="#tech" class="job-nav-link">技術系職種 ↓</a>
+        <a href="#office" class="job-nav-link">事務系職種 ↓</a>
+      </div>
+
+      <!-- 技術系 -->
+      <div id="tech" class="job-category">
+        <div class="job-category-header">
+          <span class="job-category-title">技術系職種</span>
+        </div>
+        <div class="job-list">
+
+        <!-- 基本設計 -->
+        <div class="job-item">
+          <div class="job-title">基本設計</div>
+          <div class="job-domain">
+            <div class="job-domain-label">専門領域</div>
+            <div class="job-domain-tags">
+              <span class="job-domain-tag">システム設計</span>
+              <span class="job-domain-tag">仕様策定</span>
+              <span class="job-domain-tag">顧客技術折衝</span>
+            </div>
+          </div>
+          <p class="job-desc">機械式駐車装置の基本仕様を決定する上流設計を担当します。顧客要望・敷地条件・法規制を総合的に分析し、装置構成・主要仕様・レイアウトを策定します。電気・機械各部門の詳細設計チームと連携しながらプロジェクト全体の方向性を定め、コストと性能のバランスを整える重要なポジションです。</p>
+          <div class="job-recommend">
+            <div class="job-recommend-label">こんな人におすすめ！</div>
+            <ul class="job-recommend-list">
+              <li>全体を俯瞰して技術的な判断を下すことが好きな人</li>
+              <li>顧客と技術的な対話を重ねながら最適解を導き出したい人</li>
+              <li>電気・機械にわたる幅広い知識を活かして活躍したい人</li>
+            </ul>
+          </div>
+          <div class="interview-label">職種に関連する社員</div>
+          <div class="interview-cards">
+            <a href="people-a.html" class="job-interview-card">
+              <div class="interview-photo">写真</div>
+              <div class="interview-info">
+                <div class="interview-role">基本設計</div>
+                <div class="interview-year">2015年入社</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- 詳細設計（エレ） -->
+        <div class="job-item">
+          <div class="job-title">詳細設計（エレ）</div>
+          <div class="job-domain">
+            <div class="job-domain-label">専門領域</div>
+            <div class="job-domain-tags">
+              <span class="job-domain-tag">電気・制御</span>
+              <span class="job-domain-tag">回路設計</span>
+              <span class="job-domain-tag">安全回路</span>
+            </div>
+          </div>
+          <p class="job-desc">機械式駐車装置の電気・制御系統の詳細設計を担当します。制御盤の回路設計・センサー選定・配線図の作成・安全回路の設計が主な業務です。基本設計で定められた仕様をもとに、装置が安全かつ正確に動作するための電気的な頭脳を設計し、機械系エンジニアと密に連携しながら製品の品質を支えます。</p>
+          <div class="job-recommend">
+            <div class="job-recommend-label">こんな人におすすめ！</div>
+            <ul class="job-recommend-list">
+              <li>電気・制御の仕組みに興味があり、安全を回路で実現することに面白さを感じる人</li>
+              <li>精度と安全性にこだわり、細部まで丁寧に仕事を進められる人</li>
+              <li>チームと連携しながら大型装置の完成を一緒に目指したい人</li>
+            </ul>
+          </div>
+          <div class="interview-label">職種に関連する社員</div>
+          <div class="interview-cards">
+            <a href="people-b.html" class="job-interview-card">
+              <div class="interview-photo">写真</div>
+              <div class="interview-info">
+                <div class="interview-role">詳細設計（エレ）</div>
+                <div class="interview-year">2018年入社</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- 詳細設計（メカ） -->
+        <div class="job-item">
+          <div class="job-title">詳細設計（メカ）</div>
+          <div class="job-domain">
+            <div class="job-domain-label">専門領域</div>
+            <div class="job-domain-tags">
+              <span class="job-domain-tag">機械工学</span>
+              <span class="job-domain-tag">CAD / 図面作成</span>
+              <span class="job-domain-tag">部品設計</span>
+            </div>
+          </div>
+          <p class="job-desc">機械式駐車装置の機械系統の詳細設計を担当します。基本設計で定められた仕様をもとに各部品の形状・寸法・材質を決定し、製造・組立図面を作成します。強度計算や機構解析を通じて安全で信頼性の高い装置を設計し、製造部門と連携しながらモノづくりを一貫して支えます。</p>
+          <div class="job-recommend">
+            <div class="job-recommend-label">こんな人におすすめ！</div>
+            <ul class="job-recommend-list">
+              <li>機械の仕組みに興味があり、図面を通じてモノを作ることに喜びを感じる人</li>
+              <li>精度と安全性にこだわり、細部まで丁寧に仕事を進められる人</li>
+              <li>チームと連携しながら大型装置の完成を一緒に目指したい人</li>
+            </ul>
+          </div>
+          <div class="interview-label">職種に関連する社員</div>
+          <div class="interview-cards">
+            <a href="people-c.html" class="job-interview-card">
+              <div class="interview-photo">写真</div>
+              <div class="interview-info">
+                <div class="interview-role">詳細設計（メカ）</div>
+                <div class="interview-year">2013年入社</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- 建築設計 -->
+        <div class="job-item">
+          <div class="job-title">建築設計</div>
+          <div class="job-domain">
+            <div class="job-domain-label">専門領域</div>
+            <div class="job-domain-tags">
+              <span class="job-domain-tag">自走式設計</span>
+              <span class="job-domain-tag">建物・構造</span>
+              <span class="job-domain-tag">法規・申請</span>
+            </div>
+          </div>
+          <p class="job-desc">自走式駐車場の建築設計を担当します。敷地条件・都市計画法規・顧客の要件を踏まえ、構造計画・平面計画・立面計画を策定し、確認申請図書の作成から施工図の監修まで一貫して携わります。機械式駐車装置との複合案件では設計・施工管理チームと緊密に連携し、建物全体として安全かつ機能的な駐車場を実現します。</p>
+          <div class="job-recommend">
+            <div class="job-recommend-label">こんな人におすすめ！</div>
+            <ul class="job-recommend-list">
+              <li>建築の知識を活かして、社会インフラの整備に直接貢献したい人</li>
+              <li>法規や構造に精通し、設計の細部まで責任を持って仕上げられる人</li>
+              <li>複数の専門職と連携しながら、一つのプロジェクトを完成させる喜びを味わいたい人</li>
+            </ul>
+          </div>
+          <div class="interview-label">職種に関連する社員</div>
+          <div class="interview-cards">
+            <a href="people-c.html" class="job-interview-card">
+              <div class="interview-photo">写真</div>
+              <div class="interview-info">
+                <div class="interview-role">建築設計</div>
+                <div class="interview-year">2016年入社</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- 施工管理 -->
+        <div class="job-item">
+          <div class="job-title">施工管理</div>
+          <div class="job-domain">
+            <div class="job-domain-label">専門領域</div>
+            <div class="job-domain-tags">
+              <span class="job-domain-tag">工程管理</span>
+              <span class="job-domain-tag">安全管理</span>
+              <span class="job-domain-tag">品質管理</span>
+            </div>
+          </div>
+          <p class="job-desc">機械式駐車装置の設置工事における施工管理を担当します。工程管理・安全管理・品質管理・原価管理の4つが主な業務で、工事業者の指揮監督から設計・製造部門との連絡調整まで幅広く担います。現場ごとに異なる課題に対処しながら、高品質な施工を期限内に完遂する達成感が魅力の職種です。</p>
+          <div class="job-recommend">
+            <div class="job-recommend-label">こんな人におすすめ！</div>
+            <ul class="job-recommend-list">
+              <li>現場を動かすリーダーシップと、多職種を束ねる調整力がある人</li>
+              <li>屋外・現場での仕事にやりがいを感じ、体を動かして働きたい人</li>
+              <li>納期内に高品質なモノを完成させる達成感を味わいたい人</li>
+            </ul>
+          </div>
+          <div class="interview-label">職種に関連する社員</div>
+          <div class="interview-cards">
+            <a href="people-d.html" class="job-interview-card">
+              <div class="interview-photo">写真</div>
+              <div class="interview-info">
+                <div class="interview-role">施工管理</div>
+                <div class="interview-year">2016年入社</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- パーキングサービスエンジニア -->
+        <div class="job-item">
+          <div class="job-title">パーキングサービスエンジニア</div>
+          <div class="job-domain">
+            <div class="job-domain-label">専門領域</div>
+            <div class="job-domain-tags">
+              <span class="job-domain-tag">定期点検</span>
+              <span class="job-domain-tag">故障診断・修理</span>
+              <span class="job-domain-tag">電気・機械</span>
+            </div>
+          </div>
+          <p class="job-desc">機械式駐車装置の定期点検・修理・緊急対応を担当します。定期点検では各部品の動作確認・消耗品交換・安全装置の検査を実施し、故障発生時には迅速に現場へ駆けつけ復旧対応を行います。電気・機械・制御の複合知識を活かし、装置が安全に稼働し続けられるよう365日を通して支えるプロフェッショナルです。</p>
+          <div class="job-recommend">
+            <div class="job-recommend-label">こんな人におすすめ！</div>
+            <ul class="job-recommend-list">
+              <li>機械と電気の両方に興味があり、手を動かして問題を解決することが好きな人</li>
+              <li>トラブル時に冷静に判断し、迅速に行動できる人</li>
+              <li>社会インフラを365日支えるプロフェッショナルとして誇りを持って働きたい人</li>
+            </ul>
+          </div>
+          <div class="interview-label">職種に関連する社員</div>
+          <div class="interview-cards">
+            <a href="people-i.html" class="job-interview-card">
+              <div class="interview-photo">写真</div>
+              <div class="interview-info">
+                <div class="interview-role">パーキングサービスエンジニア</div>
+                <div class="interview-year">2021年入社</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        </div><!-- /.job-list (技術系) -->
+      </div><!-- /#tech -->
+
+      <!-- 事務系 -->
+      <div id="office" class="job-category">
+        <div class="job-category-header">
+          <span class="job-category-title">事務系職種</span>
+        </div>
+        <div class="job-list">
+
+        <!-- 生産管理 -->
+        <div class="job-item">
+          <div class="job-title">生産管理</div>
+          <div class="job-domain">
+            <div class="job-domain-label">専門領域</div>
+            <div class="job-domain-tags">
+              <span class="job-domain-tag">生産計画</span>
+              <span class="job-domain-tag">在庫管理</span>
+              <span class="job-domain-tag">工程調整</span>
+            </div>
+          </div>
+          <p class="job-desc">受注した機械式駐車装置の製造計画を立案し、資材調達・部品製作・組立・出荷の各工程が滞りなく進むよう管理します。設計・調達・製造・工事の各部門と密に連携し、工程上の問題を早期に発見・解決することが役割です。受注ごとに異なる仕様と納期を管理し、会社全体の生産活動を支える縁の下の力持ちです。</p>
+          <div class="job-recommend">
+            <div class="job-recommend-label">こんな人におすすめ！</div>
+            <ul class="job-recommend-list">
+              <li>全体を俯瞰して複数の工程を同時に管理することが得意な人</li>
+              <li>問題が起きる前に先読みして動ける、段取り上手な人</li>
+              <li>縁の下の力持ちとして、チーム全体の成果に貢献することに喜びを感じる人</li>
+            </ul>
+          </div>
+          <div class="interview-label">職種に関連する社員</div>
+          <div class="interview-cards">
+            <a href="people-e.html" class="job-interview-card">
+              <div class="interview-photo">写真</div>
+              <div class="interview-info">
+                <div class="interview-role">生産管理</div>
+                <div class="interview-year">2019年入社</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- 調達 -->
+        <div class="job-item">
+          <div class="job-title">調達</div>
+          <div class="job-domain">
+            <div class="job-domain-label">専門領域</div>
+            <div class="job-domain-tags">
+              <span class="job-domain-tag">購買・調達</span>
+              <span class="job-domain-tag">サプライヤー管理</span>
+              <span class="job-domain-tag">コスト管理</span>
+            </div>
+          </div>
+          <p class="job-desc">機械式駐車装置の製造に必要な部品・材料の調達を担当します。サプライヤーとの価格交渉・発注・納期管理が主な業務です。機械・電気・建材など多岐にわたる部材を扱い、コストと品質のバランスを見極めながら発注先を選定します。新規サプライヤーの開拓や既存取引先との関係強化も重要なミッションです。</p>
+          <div class="job-recommend">
+            <div class="job-recommend-label">こんな人におすすめ！</div>
+            <ul class="job-recommend-list">
+              <li>交渉や折衝が得意で、コスト意識と品質へのこだわりを両立できる人</li>
+              <li>幅広い部材・業者を管理する几帳面さと情報収集力がある人</li>
+              <li>社外のパートナーとの長期的な信頼関係を築くことに興味がある人</li>
+            </ul>
+          </div>
+          <div class="interview-label">職種に関連する社員</div>
+          <div class="interview-cards">
+            <a href="people-f.html" class="job-interview-card">
+              <div class="interview-photo">写真</div>
+              <div class="interview-info">
+                <div class="interview-role">調達</div>
+                <div class="interview-year">2017年入社</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- パーキング新設営業 -->
+        <div class="job-item">
+          <div class="job-title">パーキング新設営業</div>
+          <div class="job-domain">
+            <div class="job-domain-label">専門領域</div>
+            <div class="job-domain-tags">
+              <span class="job-domain-tag">技術提案</span>
+              <span class="job-domain-tag">顧客折衝</span>
+              <span class="job-domain-tag">見積・契約</span>
+            </div>
+          </div>
+          <p class="job-desc">新設の機械式・自走式駐車場の受注活動を担当します。デベロッパー・ゼネコン・マンション管理会社などに対して、敷地条件に合わせた駐車場計画を提案し、見積もり・仕様調整・契約締結まで一貫して担います。技術的な知識を武器に顧客の課題を解決する、技術提案型の営業職です。</p>
+          <div class="job-recommend">
+            <div class="job-recommend-label">こんな人におすすめ！</div>
+            <ul class="job-recommend-list">
+              <li>技術の知識を武器に、顧客の課題を解決する提案型の仕事がしたい人</li>
+              <li>建築・不動産・インフラ業界のプロジェクトに関わりたい人</li>
+              <li>受注という明確な成果に向かって主体的に動ける人</li>
+            </ul>
+          </div>
+          <div class="interview-label">職種に関連する社員</div>
+          <div class="interview-cards">
+            <a href="people-g.html" class="job-interview-card">
+              <div class="interview-photo">写真</div>
+              <div class="interview-info">
+                <div class="interview-role">パーキング新設営業</div>
+                <div class="interview-year">2014年入社</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- パーキングメンテナンス営業 -->
+        <div class="job-item">
+          <div class="job-title">パーキングメンテナンス営業</div>
+          <div class="job-domain">
+            <div class="job-domain-label">専門領域</div>
+            <div class="job-domain-tags">
+              <span class="job-domain-tag">保守提案</span>
+              <span class="job-domain-tag">顧客関係管理</span>
+              <span class="job-domain-tag">リニューアル提案</span>
+            </div>
+          </div>
+          <p class="job-desc">既設の機械式駐車装置を保有する顧客に対し、保守点検契約・部品交換・リニューアル改修などを提案します。顧客の装置状態を把握し、適切なタイミングで最適なメンテナンスプランを提案することが主な役割です。長期的な信頼関係を築きながら顧客の安全・安心な装置運用を支える、リレーション型の営業職です。</p>
+          <div class="job-recommend">
+            <div class="job-recommend-label">こんな人におすすめ！</div>
+            <ul class="job-recommend-list">
+              <li>顧客と長期にわたる信頼関係を育てることに喜びを感じる人</li>
+              <li>装置の状態を把握し、先手を打ったフォローができる気配り上手な人</li>
+              <li>売りっぱなしではなく、顧客の安心を守り続ける仕事がしたい人</li>
+            </ul>
+          </div>
+          <div class="interview-label">職種に関連する社員</div>
+          <div class="interview-cards">
+            <a href="people-h.html" class="job-interview-card">
+              <div class="interview-photo">写真</div>
+              <div class="interview-info">
+                <div class="interview-role">パーキングメンテナンス営業</div>
+                <div class="interview-year">2020年入社</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- コーポレート -->
+        <div class="job-item">
+          <div class="job-title">コーポレート</div>
+          <div class="job-domain">
+            <div class="job-domain-label">専門領域</div>
+            <div class="job-domain-tags">
+              <span class="job-domain-tag">人事・労務</span>
+              <span class="job-domain-tag">経理・財務</span>
+              <span class="job-domain-tag">総務・法務</span>
+            </div>
+          </div>
+          <p class="job-desc">人事・総務・経理・財務・情報システムなど、会社経営を支えるバックオフィス業務全般を担当します。採用・労務・研修・制度設計といった人事領域から、財務管理・コンプライアンス・ITインフラ整備まで幅広い職種を含みます。技術系社員が力を発揮できる環境を整え、組織の土台を支えるやりがいのある仕事です。</p>
+          <div class="job-recommend">
+            <div class="job-recommend-label">こんな人におすすめ！</div>
+            <ul class="job-recommend-list">
+              <li>組織の土台を支えることで、会社全体の成長に貢献したい人</li>
+              <li>幅広い業務を通じてジェネラリストとして成長したい人</li>
+              <li>人や制度への関心が高く、働く環境づくりに携わりたい人</li>
+            </ul>
+          </div>
+          <div class="interview-label">職種に関連する社員</div>
+          <div class="interview-cards">
+            <a href="people-j.html" class="job-interview-card">
+              <div class="interview-photo">写真</div>
+              <div class="interview-info">
+                <div class="interview-role">コーポレート</div>
+                <div class="interview-year">2012年入社</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- 事業開発 -->
+        <div class="job-item">
+          <div class="job-title">事業開発</div>
+          <div class="job-domain">
+            <div class="job-domain-label">専門領域</div>
+            <div class="job-domain-tags">
+              <span class="job-domain-tag">新規事業企画</span>
+              <span class="job-domain-tag">市場調査</span>
+              <span class="job-domain-tag">事業戦略</span>
+            </div>
+          </div>
+          <p class="job-desc">既存の駐車場事業の枠を超えた新たなビジネスモデルの構築・推進を担います。EV充電インフラ・スマートパーキング・都市再開発との連携など、次世代の移動・空間サービスに関わる事業機会を探索・具現化します。市場調査・事業計画立案・社内外のステークホルダーとの推進まで一貫して担う、会社の未来を作るポジションです。</p>
+          <div class="job-recommend">
+            <div class="job-recommend-label">こんな人におすすめ！</div>
+            <ul class="job-recommend-list">
+              <li>既存の枠にとらわれず、0から事業を作り出すことに面白さを感じる人</li>
+              <li>都市・モビリティ・テクノロジーの交差点に興味があり、社会変化を先読みできる人</li>
+              <li>社内外のさまざまな関係者を巻き込み、推進していく行動力がある人</li>
+            </ul>
+          </div>
+          <a href="https://www.iuk.co.jp/parking/jisoshiki/future/" class="btn-outline" style="margin-top: 24px;" target="_blank">IP2の未来について知る</a>
+        </div>
+
+        </div><!-- /.job-list (事務系) -->
+      </div><!-- /#office -->
+
+    </div>
+  </div>
+
+  <!-- ENTRY CTA -->
+  <div class="entry-cta">
+    <p>株式会社IHIパーキングスクエアへのエントリーはこちらから</p>
+    <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank">エントリーする</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <a href="index.html" style="font-size:12px; font-weight:bold; text-decoration:none; color:#333;">株式会社IHIパーキングスクエア</a>
+      <nav>
+        <a href="about.html">私たちを知る</a>
+        <a href="jobs.html">仕事を知る</a>
+        <a href="people.html">人を知る</a>
+        <a href="environment-welfare.html">働く環境・制度</a>
+        <a href="students.html" target="_blank">サービスエンジニア職志望の方 <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2712px%27 viewBox=%270 -960 960 960%27 width=%2712px%27 fill=%27%231f1f1f%27%3E%3Cpath d=%27M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z%27/%3E%3C/svg%3E" style="width:12px;height:12px;vertical-align:middle;margin-left:3px;opacity:0.7;"></a>
+        <a href="recruit.html">募集要項</a>
+        <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank">エントリー</a>
+      </nav>
+      <p>&copy; 株式会社IHIパーキングスクエア</p>
+    </div>
+  </footer>
+
+</body>
+</html>

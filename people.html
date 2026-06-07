@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>人を知る｜株式会社IHIパーキングスクエア</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Crimson+Pro:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: #333; background: #fff; font-size: 16px; line-height: 1.8; }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      border-bottom: 1px solid #ccc;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+    }
+    header .container {
+      max-width: none;
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .logo { display: block; height: 32px; width: auto; }
+    nav { display: flex; gap: 20px; }
+    header nav { position: absolute; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 20px; pointer-events: none; }
+    header nav a, header nav div { pointer-events: auto; }
+    header .nav-students { margin-left: auto; margin-right: 10px; }
+    nav a { text-decoration: none; color: #333; font-size: 14px; font-family: 'Crimson Pro', serif; letter-spacing: 0; }
+    nav a.active { border-bottom: 2px solid #003E92; padding-bottom: 2px; color: #003E92; }
+    nav a:hover { color: #003E92; text-decoration: none; }
+    .nav-entry {
+      background: #003E92;
+      color: #fff;
+      padding: 8px 20px;
+      text-decoration: none;
+      font-size: 14px;
+      font-family: 'Crimson Pro', serif;
+      letter-spacing: 0;
+    }
+    .nav-entry:hover { background: #002070; }
+    .nav-students { border: 1px solid #003E92; color: #003E92; background: transparent; padding: 8px 20px; text-decoration: none; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    .nav-students:hover { background: #e8eef8; }
+    /* NAV DROPDOWN */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown-trigger { color: #333; font-size: 14px; font-family: 'Crimson Pro', serif; cursor: default; }
+    .nav-dropdown-trigger::after { content: ' ▾'; font-size: 10px; }
+    .nav-dropdown-trigger.active { border-bottom: 2px solid #003E92; padding-bottom: 2px; color: #003E92; }
+    .nav-dropdown:hover .nav-dropdown-trigger { color: #003E92; }
+    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border: 1px solid #e0e0e0; min-width: 160px; z-index: 200; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 10px 16px; font-size: 13px; color: #333; text-decoration: none; font-family: 'Noto Sans JP', sans-serif; white-space: nowrap; border-bottom: 1px solid #f0f0f0; }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: #f7f8fa; color: #003E92; }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb-bar { border-bottom: 1px solid #e0e0e0; }
+    .breadcrumb-bar .container {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      font-size: 11px;
+      color: #999;
+    }
+    .breadcrumb-bar a { color: #999; text-decoration: none; }
+    .breadcrumb-bar a:hover { text-decoration: underline; }
+    .breadcrumb-bar span { margin: 0 6px; }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero .container {
+      padding-top: 48px;
+      padding-bottom: 40px;
+    }
+    .page-hero .en { font-family: 'Crimson Pro', serif; font-size: 18px; font-weight: 500; letter-spacing: 0; color: #003E92; margin-bottom: 0; }
+    .page-hero .ja { font-family: 'Shippori Mincho B1', serif; font-size: 50px; font-weight: 500; color: #2E2E2E; line-height: 1.2; }
+
+    /* ===== SECTION ===== */
+    .section { padding: 80px 0; }
+    .section-gray { background: #f5f5f5; }
+    .section-title {
+      font-family: 'Crimson Pro', serif;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0;
+      color: #003E92;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .section-headline {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 48px;
+      line-height: 1.4;
+    }
+    .section-lead {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 48px;
+      line-height: 2;
+    }
+
+    /* ===== PEOPLE GRID ===== */
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .person-card {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      border: 1px solid #e0e0e0;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.2s;
+    }
+    .person-card:hover { background: #f5f5f5; }
+
+    .person-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #bbb;
+      font-size: 12px;
+      overflow: hidden;
+    }
+    .person-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .person-info {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .person-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .person-year {
+      font-family: 'Crimson Pro', serif;
+      font-size: 12px;
+      color: #999;
+      letter-spacing: 0;
+      margin-bottom: 16px;
+    }
+    .person-dept {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.8;
+      padding-top: 16px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+
+    /* ===== CAREER HISTORY (shared with people-*.html) ===== */
+    .career-history { border: 1px solid #e0e0e0; background: #fff; }
+    .career-item { display: grid; grid-template-columns: 110px 1fr; border-bottom: 1px solid #e0e0e0; }
+    .career-item:last-child { border-bottom: none; }
+    .career-year { font-family: 'Crimson Pro', serif; font-size: 13px; font-weight: bold; color: #003E92; padding: 24px 20px; background: #fff; border-right: 1px solid #e0e0e0; display: flex; align-items: flex-start; }
+    .career-body { padding: 24px; }
+    .career-dept { font-size: 11px; color: #999; margin-bottom: 4px; }
+    .career-role { font-size: 14px; font-weight: bold; color: #2E2E2E; margin-bottom: 6px; }
+    .career-work { font-size: 13px; font-weight: bold; color: #555; margin-bottom: 8px; }
+    .career-desc { font-size: 13px; color: #555; line-height: 1.9; }
+
+    /* ===== ENTRY CTA ===== */
+    .entry-cta { padding: 64px 0; text-align: center; background: #003E92; }
+    .entry-cta h2 { font-size: 20px; font-weight: bold; margin-bottom: 12px; }
+    .entry-cta p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 28px; }
+    .entry-cta a { display: inline-block; background: #fff; color: #003E92; padding: 14px 48px; text-decoration: none; font-size: 14px; }
+    .entry-cta a:hover { background: #e8eef8; }
+
+    /* ===== FOOTER ===== */
+    footer { border-top: 1px solid #ccc; }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      padding-bottom: 24px;
+      font-size: 11px;
+      color: #888;
+    }
+    footer nav { display: flex; gap: 16px; }
+    footer nav a { font-size: 11px; color: #888; text-decoration: none; }
+    footer nav a:hover { color: #333; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+
+  <!-- DRAFT NOTICE -->
+  <div style="background:#c00;color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:bold;width:100%;box-sizing:border-box;">デザインではありません。内容や構成、素材などを確認するためのものです。</div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <a href="index.html"><img src="img/header_logo.png" alt="株式会社IHIパーキングスクエア" class="logo"></a>
+      <nav>
+        <a href="about.html">私たちを知る</a>
+        <a href="jobs.html">仕事を知る</a>
+        <a href="people.html" class="active">人を知る</a>
+        <a href="environment-welfare.html">福利厚生</a>
+        <a href="environment-local.html">地方での働き方</a>
+        <a href="students.html" target="_blank">サービスエンジニア職志望の方 <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2712px%27 viewBox=%270 -960 960 960%27 width=%2712px%27 fill=%27%231f1f1f%27%3E%3Cpath d=%27M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z%27/%3E%3C/svg%3E" style="width:12px;height:12px;vertical-align:middle;margin-left:3px;opacity:0.7;"></a>
+        <a href="recruit.html">募集要項</a>
+      </nav>
+      <a href="students.html" target="_blank" class="nav-students">高校生の方</a>
+      <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank" class="nav-entry">エントリー</a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <a href="index.html">TOP</a>
+      <span>/</span>
+      人を知る
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="en">PEOPLE</div>
+      <div class="ja">空間を、操る人々。</div>
+    </div>
+  </div>
+
+
+  <!-- ========================================
+       1. 社員紹介
+  ========================================= -->
+  <div class="section" id="interview" style="padding-top: 0;">
+    <div class="container">
+      <div class="section-title">INTERVIEW</div>
+      <div class="section-headline">社員紹介</div>
+      <p class="section-lead">IP2で働く社員一人ひとりの日々の仕事や1日のスケジュールを紹介します。</p>
+      <div class="people-grid">
+
+        <!-- A -->
+        <a href="people-a.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">田中 健太（仮）</div>
+            <div class="person-year">2003年入社</div>
+            <div class="person-dept">基本設計<br>沼津勤務</div>
+          </div>
+        </a>
+
+        <!-- B -->
+        <a href="people-b.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">鈴木 彩花（仮）</div>
+            <div class="person-year">2018年入社</div>
+            <div class="person-dept">詳細設計（エレ）<br>沼津勤務</div>
+          </div>
+        </a>
+
+        <!-- C -->
+        <a href="people-c.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">山本 拓也（仮）</div>
+            <div class="person-year">2013年入社</div>
+            <div class="person-dept">建築設計<br>東京勤務</div>
+          </div>
+        </a>
+
+        <!-- D -->
+        <a href="people-d.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">伊藤 誠（仮）</div>
+            <div class="person-year">2001年入社</div>
+            <div class="person-dept">施工管理<br>東京勤務</div>
+          </div>
+        </a>
+
+        <!-- E -->
+        <a href="people-e.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">渡辺 麻衣（仮）</div>
+            <div class="person-year">2019年入社</div>
+            <div class="person-dept">生産管理<br>沼津勤務</div>
+          </div>
+        </a>
+
+        <!-- F -->
+        <a href="people-f.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">中村 大輔（仮）</div>
+            <div class="person-year">2017年入社</div>
+            <div class="person-dept">調達<br>沼津勤務</div>
+          </div>
+        </a>
+
+        <!-- G -->
+        <a href="people-g.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">小林 隆司（仮）</div>
+            <div class="person-year">2014年入社</div>
+            <div class="person-dept">パーキング新設営業<br>東京勤務</div>
+          </div>
+        </a>
+
+        <!-- H -->
+        <a href="people-h.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">加藤 里奈（仮）</div>
+            <div class="person-year">2020年入社</div>
+            <div class="person-dept">パーキングメンテナンス営業<br>東京勤務</div>
+          </div>
+        </a>
+
+        <!-- I -->
+        <a href="people-i.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">吉田 将太（仮）</div>
+            <div class="person-year">2021年入社</div>
+            <div class="person-dept">パーキングサービスエンジニア<br>東京勤務</div>
+          </div>
+        </a>
+
+        <!-- J -->
+        <a href="people-j.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">松本 友美（仮）</div>
+            <div class="person-year">2002年入社</div>
+            <div class="person-dept">コーポレート<br>東京勤務</div>
+          </div>
+        </a>
+
+        <!-- K -->
+        <a href="people-k.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">佐々木 大地（仮）</div>
+            <div class="person-year">2016年入社</div>
+            <div class="person-dept">基本設計<br>沼津勤務</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================
+       2. キャリアヒストリー
+  ========================================= -->
+  <div class="section section-gray" id="career">
+    <div class="container">
+      <div class="section-title">CAREER HISTORY</div>
+      <div class="section-headline">キャリアヒストリー</div>
+      <p class="section-lead">IP2での長期的なキャリアの歩みをご紹介します。</p>
+
+      <!-- Cards (same design as 社員紹介) -->
+      <div class="people-grid">
+
+        <!-- G -->
+        <a href="career-g.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">小林 隆司（仮）</div>
+            <div class="person-year">2014年入社</div>
+            <div class="person-dept">パーキング新設営業<br>東京勤務</div>
+          </div>
+        </a>
+
+        <!-- A -->
+        <a href="career-a.html" class="person-card">
+          <div class="person-photo">写真</div>
+          <div class="person-info">
+            <div class="person-name">田中 健太（仮）</div>
+            <div class="person-year">2003年入社</div>
+            <div class="person-dept">基本設計<br>沼津勤務</div>
+          </div>
+        </a>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <!-- ENTRY CTA -->
+  <div class="entry-cta">
+    <p>株式会社IHIパーキングスクエアへのエントリーはこちらから</p>
+    <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank">エントリーする</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <a href="index.html" style="font-size:12px; font-weight:bold; text-decoration:none; color:#333;">株式会社IHIパーキングスクエア</a>
+      <nav>
+        <a href="about.html">私たちを知る</a>
+        <a href="jobs.html">仕事を知る</a>
+        <a href="people.html">人を知る</a>
+        <a href="environment-welfare.html">働く環境・制度</a>
+        <a href="students.html" target="_blank">サービスエンジニア職志望の方 <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2712px%27 viewBox=%270 -960 960 960%27 width=%2712px%27 fill=%27%231f1f1f%27%3E%3Cpath d=%27M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z%27/%3E%3C/svg%3E" style="width:12px;height:12px;vertical-align:middle;margin-left:3px;opacity:0.7;"></a>
+        <a href="recruit.html">募集要項</a>
+        <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank">エントリー</a>
+      </nav>
+      <p>&copy; 株式会社IHIパーキングスクエア</p>
+    </div>
+  </footer>
+
+
+
+</body>
+</html>

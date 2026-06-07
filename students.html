@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SE職志望の方へ｜STUDENTS｜株式会社IHIパーキングスクエア</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Crimson+Pro:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: #333; background: #fff; font-size: 16px; line-height: 1.8; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+    .inner { max-width: 1192px; margin: 0 auto; padding: 0 44px; }
+
+    /* ========================
+       IN-PAGE NAV
+    ======================== */
+    .inpage-nav { border-bottom: 1px solid #ccc; background: #fff; position: sticky; top: 0; z-index: 100; }
+    .inpage-nav .container { display: flex; align-items: center; gap: 24px; padding-top: 0; padding-bottom: 0; }
+    .inpage-nav-logo { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-right: 1px solid #ccc; padding-right: 20px; margin-right: 4px; flex-shrink: 0; }
+    .inpage-nav-logo img { height: 28px; width: auto; }
+    .inpage-nav-logo span { font-family: 'Noto Sans JP', sans-serif; font-size: 13px; color: #333; white-space: nowrap; }
+    .inpage-nav-links { display: flex; gap: 0; overflow-x: auto; }
+    .inpage-nav-links a { display: block; padding: 14px 16px; font-family: 'Noto Sans JP', sans-serif; font-size: 13px; color: #333; text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+    .inpage-nav-links a:hover { color: #003E92; border-bottom-color: #003E92; }
+    .inpage-nav-links a.active { color: #003E92; border-bottom-color: #003E92; }
+
+    /* ========================
+       HERO
+    ======================== */
+    .students-hero { position: relative; overflow: visible; padding: 80px 0 0; }
+    .students-hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .hero-left { padding-bottom: 80px; }
+    .hero-en { font-family: 'Crimson Pro', serif; font-size: 18px; font-weight: 500; color: #003E92; margin-bottom: 4px; }
+    .hero-title { font-family: 'Shippori Mincho B1', serif; font-size: 42px; font-weight: 500; color: #2E2E2E; line-height: 1.2; margin-bottom: 28px; }
+    .hero-catch { font-size: 15px; color: #555; line-height: 2.3; max-width: 400px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: #f2f2f2;
+      padding: 10px 20px 10px 16px;
+      margin-top: 28px;
+      border-left: 3px solid #003E92;
+    }
+    .hero-badge-label {
+      font-family: 'Crimson Pro', serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #003E92;
+      white-space: nowrap;
+    }
+    .hero-badge-value {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.06em;
+    }
+    .hero-right { position: relative; margin-top: -80px; }
+    .hero-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .hero-img-block { overflow: hidden; border-radius: 2px; }
+    .hero-img-block.tall { aspect-ratio: 3/4; }
+    .hero-img-block.short { aspect-ratio: 4/5; margin-top: 40px; }
+    .hero-img-block .img-placeholder { width: 100%; height: 100%; }
+
+    /* ========================
+       SECTION COMMON
+    ======================== */
+    .section { padding: 80px 0; }
+    .section-label { font-family: 'Crimson Pro', serif; font-size: 14px; font-weight: bold; color: #003E92; text-transform: uppercase; margin-bottom: 8px; }
+    .section-headline { font-family: 'Shippori Mincho B1', serif; font-size: 26px; font-weight: 700; margin-bottom: 0; line-height: 1.4; }
+    .section-header { margin-bottom: 48px; }
+    .section-header-row { display: flex; align-items: flex-end; justify-content: space-between; }
+    .section-desc { font-size: 14px; color: #555; line-height: 1.8; }
+
+    /* ========================
+       VIDEO SECTION
+    ======================== */
+    .video-section { padding: 64px 0 80px; }
+    .video-title-wrap { text-align: center; margin-bottom: 32px; }
+    .video-title-wrap .section-label { display: block; text-align: center; }
+    .video-title-wrap .section-headline { font-size: 26px; }
+    .video-frame { max-width: 1100px; margin: 0 auto; position: relative; overflow: hidden; }
+    .video-frame .img-placeholder { width: 100%; aspect-ratio: 16/7; background: #222; }
+    .video-play-btn { position: absolute; bottom: 16px; right: 16px; background: #003E92; color: #fff; display: flex; align-items: center; gap: 8px; padding: 10px 20px; cursor: pointer; }
+    .video-play-btn .material-icons { font-size: 20px; }
+    .video-play-btn span.label { font-size: 14px; font-family: 'Crimson Pro', serif; }
+
+    /* ========================
+       INTERVIEW SECTION
+    ======================== */
+    .interview-section { padding: 80px 0; }
+    .interview-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-top: 40px; }
+    .interview-card-photo { position: relative; overflow: hidden; cursor: pointer; transition: opacity 0.2s; }
+    .interview-card-photo:hover { opacity: 0.85; }
+    .interview-card-photo:hover .interview-card-arrow { background: #003E92; border-color: #003E92; }
+    .interview-card-photo .img-placeholder { width: 100%; aspect-ratio: 16/10; background: #e0e0e0; }
+    .interview-card-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
+    .interview-card-school { position: absolute; top: 20px; left: 20px; font-size: 15px; font-weight: bold; color: #fff; line-height: 1.3; }
+    .interview-card-info { position: absolute; bottom: 20px; left: 20px; }
+    .interview-card-name { font-family: 'Shippori Mincho B1', serif; font-size: 17px; font-weight: 700; color: #fff; line-height: 1.8; }
+    .interview-card-name span { font-size: 13px; opacity: 0.85; font-weight: 400; margin-left: 4px; font-family: 'Noto Sans JP', sans-serif; }
+    .interview-card-role { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5; }
+    .interview-card-arrow { position: absolute; bottom: 20px; right: 20px; width: 36px; height: 36px; border: 1px solid #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s; }
+    .interview-card-arrow .material-icons { font-size: 16px; color: #fff; transform: rotate(-90deg); }
+
+    /* ========================
+       JOB INTRO SECTION
+    ======================== */
+    .job-intro-section { padding: 80px 0; background: #003E92; }
+    .job-intro-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .job-intro-photo .img-placeholder { width: 100%; aspect-ratio: 4/3; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); }
+    .job-intro-title { font-family: 'Shippori Mincho B1', serif; font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 24px; line-height: 1.6; }
+    .job-intro-body { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 2; }
+
+    /* ========================
+       FLOW SECTION
+    ======================== */
+    .flow-section { padding: 72px 0; background: #003E92; }
+    .flow-section .container { padding-top: 0; padding-bottom: 0; }
+    .flow-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; }
+    .flow-header-left { display: flex; flex-direction: column; gap: 4px; }
+    .flow-label { font-family: 'Crimson Pro', serif; font-size: 14px; font-weight: bold; color: rgba(255,255,255,0.7); text-transform: uppercase; }
+    .flow-title { font-family: 'Shippori Mincho B1', serif; font-size: 26px; font-weight: 700; color: #fff; line-height: 1.4; }
+    .flow-desc { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.8; text-align: right; }
+    .flow-steps-horiz { display: flex; gap: 2px; }
+    .flow-step-card { flex: 1; background: #fff; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 28px 16px; text-align: center; }
+    .flow-step-num { font-family: 'Crimson Pro', serif; font-size: 20px; font-weight: bold; color: #003E92; line-height: 1; }
+    .flow-step-icon { width: 64px; height: 64px; background: #e8eef8; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .flow-step-icon .material-icons { font-size: 28px; color: #003E92; }
+    .flow-step-label { font-size: 14px; color: #333; line-height: 1.8; font-weight: bold; }
+
+    /* ========================
+       FAQ SECTION
+    ======================== */
+    .faq-section { padding: 80px 0; }
+    .faq-items { display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
+    .faq-item { border-bottom: 1px solid #e0e0e0; }
+    .faq-item:first-child { border-top: 1px solid #e0e0e0; }
+    .faq-item:hover { background: #f7f8fa; }
+    .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; cursor: pointer; gap: 16px; min-height: 76px; }
+    .faq-q-left { display: flex; align-items: center; gap: 16px; flex: 1; }
+    .faq-q-num { font-family: 'Crimson Pro', serif; font-size: 20px; font-weight: bold; color: #003E92; line-height: 1; flex-shrink: 0; }
+    .faq-q-text { font-size: 15px; color: #333; line-height: 1.8; font-weight: bold; }
+    .faq-toggle { width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
+    .faq-toggle .material-icons { font-size: 20px; color: #333; }
+    .faq-item.open .faq-toggle { transform: rotate(180deg); }
+    .faq-a { display: none; padding: 0 24px 24px 60px; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-a-text { font-size: 14px; color: #555; line-height: 1.9; }
+
+    /* ========================
+       RECRUITMENT SECTION
+    ======================== */
+    .recruitment-section { padding: 80px 0; background: #f5f5f5; }
+    .recruitment-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+    .recruitment-table th,
+    .recruitment-table td { padding: 20px 24px; border-bottom: 1px solid #e0e0e0; font-size: 14px; line-height: 1.9; text-align: left; vertical-align: top; }
+    .recruitment-table tr:first-child th,
+    .recruitment-table tr:first-child td { border-top: 1px solid #e0e0e0; }
+    .recruitment-table th { width: 200px; font-weight: bold; color: #333; background: #fff; white-space: nowrap; }
+    .recruitment-table td { color: #555; background: #fff; }
+
+    /* ========================
+       WELFARE BANNER
+    ======================== */
+    .welfare-section { padding: 0 0 80px; }
+    .welfare-banner { background: #f7f8fa; border: 1px solid #e0e0e0; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 32px; padding: 40px 48px; text-decoration: none; color: #333; transition: background 0.2s; }
+    .welfare-banner:hover { background: #edf0f7; }
+    .welfare-banner-label { font-family: 'Crimson Pro', serif; font-size: 13px; font-weight: bold; color: #003E92; text-transform: uppercase; margin-bottom: 6px; }
+    .welfare-banner-title { font-family: 'Shippori Mincho B1', serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .welfare-banner-desc { font-size: 13px; color: #555; line-height: 1.8; }
+    .welfare-banner-arrow { font-size: 32px; color: #003E92; }
+
+
+    /* ========================
+       FOOTER
+    ======================== */
+    footer { border-top: 1px solid #ccc; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; padding-bottom: 24px; font-size: 11px; color: #888; }
+    footer nav { display: flex; gap: 16px; }
+    footer nav a { font-size: 11px; color: #888; text-decoration: none; }
+    footer nav a:hover { color: #333; text-decoration: underline; }
+
+    /* IMG PLACEHOLDER */
+    .img-placeholder { background: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 12px; }
+
+    /* MODAL */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 500; align-items: center; justify-content: center; padding: 40px; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: #fff; max-width: 760px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; }
+    .modal-close { position: absolute; top: 20px; right: 20px; background: none; border: none; cursor: pointer; font-size: 24px; color: #999; z-index: 10; }
+    .modal-close:hover { color: #333; }
+    .modal-header { display: grid; grid-template-columns: 200px 1fr; }
+    .modal-header-photo { aspect-ratio: 3/4; overflow: hidden; }
+    .modal-header-photo .img-placeholder { width: 100%; height: 100%; }
+    .modal-header-info { padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; background: #f7f8fa; }
+    .modal-header-role { font-size: 11px; color: #003E92; font-family: 'Crimson Pro', serif; text-transform: uppercase; margin-bottom: 4px; }
+    .modal-header-year { font-size: 11px; color: #999; margin-bottom: 16px; }
+    .modal-header-name { font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+    .modal-header-quote { font-size: 14px; color: #555; line-height: 1.8; font-style: italic; }
+    .modal-body { padding: 40px; }
+    .modal-qa { margin-bottom: 32px; }
+    .modal-qa:last-child { margin-bottom: 0; }
+    .modal-q { font-size: 13px; font-weight: bold; color: #003E92; margin-bottom: 10px; padding-left: 20px; position: relative; }
+    .modal-q::before { content: 'Q.'; position: absolute; left: 0; font-family: 'Crimson Pro', serif; }
+    .modal-a { font-size: 14px; color: #555; line-height: 1.9; padding-left: 20px; position: relative; }
+    .modal-a::before { content: 'A.'; position: absolute; left: 0; font-family: 'Crimson Pro', serif; color: #333; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+
+  <!-- DRAFT NOTICE -->
+  <div style="background:#c00;color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:bold;width:100%;box-sizing:border-box;">デザインではありません。内容や構成、素材などを確認するためのものです。</div>
+
+  <!-- IN-PAGE NAV -->
+  <nav class="inpage-nav">
+    <div class="container">
+      <div class="inpage-nav-logo">
+        <img src="img/header_logo.png" alt="IHI">
+        <span>SE職志望の方へ</span>
+      </div>
+      <div class="inpage-nav-links">
+        <a href="#about">SE職について</a>
+<a href="#interview">先輩インタビュー</a>
+        <a href="#flow">業務フロー</a>
+        <a href="#faq">よくある質問</a>
+        <a href="#contact">募集要項</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="students-hero" id="about">
+    <div class="container">
+      <div class="hero-left">
+        <div class="hero-en">FOR SERVICE ENGINEER CANDIDATES</div>
+        <h1 class="hero-title">サービスエンジニア職<br>志望の方へ</h1>
+        <p class="hero-catch">
+          最初は、右も左もわからないかもしれない。<br>
+          巨大な機械を前に、足がすくんでも大丈夫。<br>
+          IHIパーキングスクエアという大きな舞台で、<br>
+          頼れる先輩たちが、プロになるまで、<br>
+          粘り強く、何度でも、背中を押してくれる。<br>
+          10年後、君は誰からも頼られる技術者になっている。<br>
+          未経験の今を、最強の武器に変えよう。
+        </p>
+      </div>
+      <div class="hero-right">
+        <img src="img/illust.jpg" alt="" style="width:100%; display:block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- JOB INTRO SECTION -->
+  <section class="job-intro-section">
+    <div class="container">
+      <div class="job-intro-layout">
+        <div class="job-intro-photo">
+          <div class="img-placeholder">写真</div>
+        </div>
+        <div class="job-intro-content">
+          <h2 class="job-intro-title">
+            言葉を尽くし、心を通わせる。<br>その対話までが、サービスエンジニアです。
+          </h2>
+          <p class="job-intro-body">機械式駐車場装置の保守・点検を２〜３人１組のチームで行い、様々な物件を巡回しながら設備の安全稼働を支えます。また老朽化した設備に対して保全工事の提案業務も行います。チームメンバーや他部署と連携しつつ、お客様とのコミュニケーションを通じて世界のまちづくりやクルマ社会の発展に貢献します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO SECTION -->
+  <section class="video-section">
+    <div class="container">
+      <div class="video-title-wrap">
+        <div class="section-label">Movie</div>
+        <h2 class="section-headline">サービスエンジニア職の1日に密着！</h2>
+      </div>
+      <div class="video-frame" style="position:relative; aspect-ratio:16/9; overflow:hidden;">
+        <img src="img/img_se.jpg" alt="" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div style="position:absolute; inset:0; background:rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center;">
+          <div style="font-family:'Noto Sans JP',sans-serif; font-size:16px; color:rgba(255,255,255,0.8); letter-spacing:0.1em;">動画が入ります</div>
+        </div>
+        <div class="video-play-btn" style="position:absolute; bottom:16px; right:16px;">
+          <span class="material-icons">play_arrow</span>
+          <span class="label">PLAY</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERVIEW SECTION -->
+  <section class="interview-section" id="interview">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header-row">
+          <div>
+            <div class="section-label">Interview</div>
+            <h2 class="section-headline">先輩インタビュー</h2>
+          </div>
+          <p class="section-desc">サービスエンジニア職で活躍されている<br>先輩をご紹介します。</p>
+        </div>
+      </div>
+      <div class="interview-cards">
+
+        <!-- インタビュー1 -->
+        <div class="interview-card-photo" onclick="openModal('modal-a')">
+          <div class="img-placeholder" style="min-height: 320px;">写真</div>
+          <div class="interview-card-overlay"></div>
+          <div class="interview-card-school">高卒入社</div>
+          <div class="interview-card-info">
+            <div class="interview-card-name">鈴木 大輔 <span>さん</span></div>
+          </div>
+          <div class="interview-card-arrow">
+            <span class="material-icons">arrow_downward</span>
+          </div>
+        </div>
+
+        <!-- インタビュー2 -->
+        <div class="interview-card-photo" onclick="openModal('modal-b')">
+          <div class="img-placeholder" style="min-height: 320px;">写真</div>
+          <div class="interview-card-overlay"></div>
+          <div class="interview-card-school">高卒入社</div>
+          <div class="interview-card-info">
+            <div class="interview-card-name">森 あかり <span>さん</span></div>
+          </div>
+          <div class="interview-card-arrow">
+            <span class="material-icons">arrow_downward</span>
+          </div>
+        </div>
+
+        <!-- インタビュー3: 別ページへ -->
+        <a href="people-i.html" class="interview-card-photo" style="text-decoration:none;">
+          <div class="img-placeholder" style="min-height: 320px;">写真</div>
+          <div class="interview-card-overlay"></div>
+          <div class="interview-card-info">
+            <div class="interview-card-name">吉田 将太 <span>さん</span></div>
+          </div>
+          <div class="interview-card-arrow">
+            <span class="material-icons">arrow_forward</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOW SECTION -->
+  <section class="flow-section" id="flow">
+    <div class="container">
+    <div class="flow-header">
+      <div class="flow-header-left">
+        <div class="flow-label">Flow</div>
+        <h2 class="flow-title">業務フロー</h2>
+      </div>
+    </div>
+    <div class="flow-steps-horiz">
+      <div class="flow-step-card">
+        <div class="flow-step-num">01</div>
+        <div class="flow-step-icon"><span class="material-icons">calendar_today</span></div>
+        <div class="flow-step-label">保守点検の計画、<br>お客様との調整</div>
+      </div>
+      <div class="flow-step-card">
+        <div class="flow-step-num">02</div>
+        <div class="flow-step-icon"><span class="material-icons">build</span></div>
+        <div class="flow-step-label">保守点検の実施<br>（給油・調整等）</div>
+      </div>
+      <div class="flow-step-card">
+        <div class="flow-step-num">03</div>
+        <div class="flow-step-icon"><span class="material-icons">handyman</span></div>
+        <div class="flow-step-label">不具合があれば<br>修理対応</div>
+      </div>
+      <div class="flow-step-card">
+        <div class="flow-step-num">04</div>
+        <div class="flow-step-icon"><span class="material-icons">description</span></div>
+        <div class="flow-step-label">点検報告書をもとに<br>お客様に報告</div>
+      </div>
+      <div class="flow-step-card">
+        <div class="flow-step-num">05</div>
+        <div class="flow-step-icon"><span class="material-icons">autorenew</span></div>
+        <div class="flow-step-label">劣化部品があれば<br>交換の提案（保全）</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-header-row">
+          <div>
+            <div class="section-label">FAQ</div>
+            <h2 class="section-headline">よくある質問</h2>
+          </div>
+          <p class="section-desc">学生や保護者から<br>実際にあった質問を掲載しています。</p>
+        </div>
+      </div>
+      <div class="faq-items">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <div class="faq-q-left">
+              <span class="faq-q-num">Q1.</span>
+              <span class="faq-q-text">応募するにはどうすればいい？</span>
+            </div>
+            <div class="faq-toggle"><span class="material-icons">add</span></div>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-text">高校卒業者の採用は、学校からの推薦応募となっております。進路指導部の先生を通じてご応募ください。直接のご応募は受け付けておりませんのでご注意ください。</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <div class="faq-q-left">
+              <span class="faq-q-num">Q2.</span>
+              <span class="faq-q-text">どんな生徒を求めていますか？</span>
+            </div>
+            <div class="faq-toggle"><span class="material-icons">add</span></div>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-text">学歴よりも「意欲・成長」を重視しています。機械や電気に興味があり、現場でものづくりに携わりたいという気持ちを持った方を歓迎しています。入社後の研修制度が充実しているため、未経験でも安心してスタートできます。</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <div class="faq-q-left">
+              <span class="faq-q-num">Q3.</span>
+              <span class="faq-q-text">応募前に見学することはできますか？</span>
+            </div>
+            <div class="faq-toggle"><span class="material-icons">add</span></div>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-text">はい、工場見学や職場見学を随時受け付けております。進路指導部の先生を通じてご連絡いただければ、日程を調整いたします。実際の職場の雰囲気を感じていただけます。</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <div class="faq-q-left">
+              <span class="faq-q-num">Q4.</span>
+              <span class="faq-q-text">1校からの応募人数に制限はありますか？</span>
+            </div>
+            <div class="faq-toggle"><span class="material-icons">add</span></div>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-text">1校あたりの推薦人数に特に制限は設けておりませんが、各学校の推薦枠については進路指導部の先生にご確認ください。複数名の推薦も歓迎しております。</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <div class="faq-q-left">
+              <span class="faq-q-num">Q5.</span>
+              <span class="faq-q-text">実家から離れた勤務地の場合、寮はありますか？</span>
+            </div>
+            <div class="faq-toggle"><span class="material-icons">add</span></div>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-text">はい、社員寮をご用意しております。入社時に実家から通えない勤務地に配属される場合は、寮への入居が可能です。家賃補助制度もありますので、安心して新生活をスタートできます。</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <div class="faq-q-left">
+              <span class="faq-q-num">Q6.</span>
+              <span class="faq-q-text">入社後の教育・研修制度はどうなっていますか？</span>
+            </div>
+            <div class="faq-toggle"><span class="material-icons">add</span></div>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-text">入社1年目は「職場指導員制度」により先輩社員がマンツーマンで指導します。2年目以降も部門別OJTを継続しながら、「IHIグループ選択型研修」「階層別研修」「キャリア形成支援」など体系的な研修制度を用意しています。未経験でも着実にスキルアップできる環境です。</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <div class="faq-q-left">
+              <span class="faq-q-num">Q7.</span>
+              <span class="faq-q-text">転勤や異動はありますか？</span>
+            </div>
+            <div class="faq-toggle"><span class="material-icons">add</span></div>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-text">サービスエンジニア職は全国各地の拠点に配属されるため、キャリアの中で転勤が生じる場合があります。配属・異動は本人の希望や家庭の事情も考慮した上で決定しており、転居を伴う場合は引越費用の補助も行っています。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WELFARE BANNER -->
+  <section class="welfare-section">
+    <div class="container">
+      <a href="environment-welfare.html" class="welfare-banner">
+        <div>
+          <div class="welfare-banner-label">Environment</div>
+          <div class="welfare-banner-title">福利厚生・制度</div>
+          <div class="welfare-banner-desc">給与・各種手当・休暇制度・育児支援・研修制度など、働く上で気になる制度をまとめています。</div>
+        </div>
+        <span class="material-icons welfare-banner-arrow">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- RECRUITMENT SECTION -->
+  <section class="recruitment-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Recruit</div>
+        <h2 class="section-headline">募集要項</h2>
+      </div>
+      <table class="recruitment-table">
+        <tr>
+          <th>募集職種</th>
+          <td>サービスエンジニア</td>
+        </tr>
+        <tr>
+          <th>雇用形態</th>
+          <td>正社員</td>
+        </tr>
+        <tr>
+          <th>応募資格</th>
+          <td>高校卒業見込みの方（学科不問）<br>機械・電気に興味のある方歓迎</td>
+        </tr>
+        <tr>
+          <th>給与</th>
+          <td>月給 ○○○,○○○円〜（各種手当含む）<br>※詳細は選考時にご案内します</td>
+        </tr>
+        <tr>
+          <th>勤務地</th>
+          <td>東京・神奈川・静岡（沼津）・大阪 ほか全国各地<br>※希望・適性を考慮して決定します</td>
+        </tr>
+        <tr>
+          <th>勤務時間</th>
+          <td>8:00〜17:00（休憩60分）<br>時間外労働あり（月平均20時間程度）</td>
+        </tr>
+        <tr>
+          <th>休日・休暇</th>
+          <td>週休2日制（土日）、祝日、年次有給休暇、年末年始休暇</td>
+        </tr>
+        <tr>
+          <th>待遇・福利厚生</th>
+          <td>各種社会保険完備、社員寮あり、資格取得支援制度、制服支給</td>
+        </tr>
+        <tr>
+          <th>応募方法</th>
+          <td>学校の進路指導部の先生を通じてご応募ください</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <a href="index.html" style="font-size:12px; font-weight:bold; text-decoration:none; color:#333;">株式会社IHIパーキングスクエア</a>
+      <nav>
+        <a href="#about">SE職について</a>
+        <a href="#interview">先輩インタビュー</a>
+        <a href="#flow">業務フロー</a>
+        <a href="#faq">よくある質問</a>
+        <a href="https://www.iuk.co.jp/contact/" target="_blank">募集要項</a>
+        <a href="index.html">新卒採用ページへ</a>
+      </nav>
+      <p>&copy; 株式会社IHIパーキングスクエア</p>
+    </div>
+  </footer>
+
+  <!-- MODAL A -->
+  <div id="modal-a" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-a')">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('modal-a')">✕</button>
+      <div class="modal-header">
+        <div class="modal-header-photo">
+          <div class="img-placeholder" style="height:100%; min-height: 260px;">写真</div>
+        </div>
+        <div class="modal-header-info">
+          <div class="modal-header-role">Service Engineer</div>
+          <div class="modal-header-year">2022年入社 ／ 高卒3年目</div>
+          <div class="modal-header-name">鈴木 大輔</div>
+          <div class="modal-header-quote">「故障した装置が自分の手で動くようになる瞬間が、いちばん好きです」</div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-qa">
+          <div class="modal-q">この仕事を選んだきっかけを教えてください。</div>
+          <div class="modal-a">もともと機械をいじるのが好きで、高校の先生にすすめてもらったのがきっかけです。正直、駐車場の装置がこんなに複雑だとは思っていなかった。入社して現物を見たとき、「これを自分が直すのか」とワクワクしたのを覚えています。</div>
+        </div>
+        <div class="modal-qa">
+          <div class="modal-q">入社してから大変だったことは？</div>
+          <div class="modal-a">最初は電気系の知識がほとんどなくて、図面を読むことが大変でした。でも先輩がいつも「これ見ててみ」と現場で丁寧に教えてくれたので、1年くらいで基本的なことは自分でできるようになりました。今では後輩に教える立場になりつつあります。</div>
+        </div>
+        <div class="modal-qa">
+          <div class="modal-q">仕事のやりがいは何ですか？</div>
+          <div class="modal-a">やっぱり「直した」瞬間が最高です。お客様が「助かりました」と言ってくれるとき、この仕事をやっていてよかったと思います。あと、毎日違う現場・違うトラブルに対応するので、飽きないのもいいところです。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL B -->
+  <div id="modal-b" class="modal-overlay" onclick="closeModalOnOverlay(event, 'modal-b')">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('modal-b')">✕</button>
+      <div class="modal-header">
+        <div class="modal-header-photo">
+          <div class="img-placeholder" style="height:100%; min-height: 260px;">写真</div>
+        </div>
+        <div class="modal-header-info">
+          <div class="modal-header-role">Manufacturing / Production</div>
+          <div class="modal-header-year">2021年入社 ／ 高卒4年目</div>
+          <div class="modal-header-name">森 あかり</div>
+          <div class="modal-header-quote">「工場での仕事は、チームワークがすべて。一緒に働く仲間が大好きです」</div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-qa">
+          <div class="modal-q">高校卒業後、製造職を選んだ理由は？</div>
+          <div class="modal-a">手を動かすのが好きで、ものを作ることに喜びを感じるタイプです。大学に進むよりも早く現場に出て経験を積みたいという気持ちがあり、就職を選びました。IHIパーキングスクエアを選んだのは、工場見学で職場の雰囲気がとても良かったから。</div>
+        </div>
+        <div class="modal-qa">
+          <div class="modal-q">工場での一日はどんな感じですか？</div>
+          <div class="modal-a">朝礼で安全確認をして、チームで当日の作業を確認します。部品の組み立て・品質チェック・生産データの入力などが主な業務です。昼休みは食堂でみんなと食べることが多くて、そこで他の部署の人とも仲良くなれました。</div>
+        </div>
+        <div class="modal-qa">
+          <div class="modal-q">女性でも活躍できますか？</div>
+          <div class="modal-a">私自身が証明だと思っています（笑）。重い物を一人で持つような作業はないですし、困ったら周りに頼れる環境があります。育児休暇取得実績もあり、将来のことも安心して考えられます。女性の先輩も少しずつ増えてきているので、心強いです。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeModalOnOverlay(e, id) {
+      if (e.target === document.getElementById(id)) closeModal(id);
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(function(m) {
+          m.classList.remove('open');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+
+    // FAQ accordion
+    function toggleFaq(el) {
+      var item = el.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      var icon = item.querySelector('.faq-toggle .material-icons');
+      item.classList.toggle('open');
+      icon.textContent = isOpen ? 'add' : 'remove';
+    }
+
+    // In-page nav active state on scroll
+    var sections = ['about','message','interview','flow','faq','contact'];
+    var navLinks = document.querySelectorAll('.inpage-nav-links a');
+    window.addEventListener('scroll', function() {
+      var scrollY = window.scrollY + 140;
+      var current = '';
+      sections.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) current = id;
+      });
+      navLinks.forEach(function(a) {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

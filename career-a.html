@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>田中 健太 キャリアヒストリー｜人を知る｜株式会社IHIパーキングスクエア</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Crimson+Pro:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: #333; background: #fff; font-size: 16px; line-height: 1.8; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+    /* ===== HEADER ===== */
+    header { border-bottom: 1px solid #ccc; position: sticky; top: 0; background: #fff; z-index: 100; }
+    header .container { max-width: none; padding: 14px 40px; display: flex; align-items: center; position: relative; }
+    .logo { display: block; height: 32px; width: auto; }
+    nav { display: flex; gap: 20px; }
+    header nav { position: absolute; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 20px; pointer-events: none; }
+    header nav a, header nav div { pointer-events: auto; }
+    header .nav-students { margin-left: auto; margin-right: 10px; }
+    nav a { text-decoration: none; color: #333; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    nav a.active { border-bottom: 2px solid #003E92; padding-bottom: 2px; color: #003E92; }
+    nav a:hover { color: #003E92; }
+    .nav-entry { background: #003E92; color: #fff; padding: 8px 20px; text-decoration: none; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    .nav-entry:hover { background: #002070; }
+    .nav-students { border: 1px solid #003E92; color: #003E92; background: transparent; padding: 8px 20px; text-decoration: none; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    .nav-students:hover { background: #e8eef8; }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb-bar { border-bottom: 1px solid #e0e0e0; }
+    .breadcrumb-bar .container { padding-top: 12px; padding-bottom: 12px; font-size: 11px; color: #999; }
+    .breadcrumb-bar a { color: #999; text-decoration: none; }
+    .breadcrumb-bar a:hover { text-decoration: underline; }
+    .breadcrumb-bar span { margin: 0 6px; }
+
+    /* ===== PLACEHOLDER ===== */
+    .img { background: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px; }
+
+    /* ===== HERO ===== */
+    .hero { padding: 64px 0; }
+    .hero .container { display: grid; grid-template-columns: 1fr 400px; gap: 64px; align-items: center; }
+    .hero-name { font-family: 'Shippori Mincho B1', serif; font-size: 36px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    .hero-name-en { font-family: 'Crimson Pro', serif; font-size: 14px; color: #999; margin-bottom: 32px; }
+    .hero-meta { display: flex; flex-direction: column; gap: 10px; padding-top: 32px; border-top: 1px solid #e0e0e0; }
+    .hero-meta-row { display: grid; grid-template-columns: 100px 1fr; font-size: 13px; }
+    .hero-meta-label { color: #999; }
+    .hero-meta-value { color: #333; font-weight: bold; }
+    .hero-photo { aspect-ratio: 3/4; }
+
+    /* ===== SECTION ===== */
+    .section { padding: 80px 0; }
+    .section-gray { background: #f5f5f5; }
+
+    /* ===== STEP BLOCK ===== */
+    .qa-block { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .qa-block.reverse { direction: rtl; }
+    .qa-block.reverse > * { direction: ltr; }
+    .qa-num { font-family: 'Crimson Pro', serif; font-size: 13px; font-weight: bold; color: #003E92; letter-spacing: 0.15em; margin-bottom: 12px; }
+    .step-year { font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 700; color: #2E2E2E; margin-bottom: 6px; line-height: 1.4; }
+    .step-meta { font-size: 12px; color: #999; margin-bottom: 20px; }
+    .qa-question { font-family: 'Shippori Mincho B1', serif; font-size: 18px; font-weight: 700; line-height: 1.6; margin-bottom: 20px; color: #2E2E2E; }
+    .qa-answer { font-size: 15px; color: #555; line-height: 2; }
+    .qa-image { aspect-ratio: 4/3; }
+    .step-block { max-width: 760px; }
+
+    /* ===== FOOTER ===== */
+    footer { border-top: 1px solid #ccc; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; padding-bottom: 24px; font-size: 11px; color: #888; }
+    footer nav { display: flex; gap: 16px; }
+    footer nav a { font-size: 11px; color: #888; text-decoration: none; }
+    footer nav a:hover { color: #333; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+
+  <!-- DRAFT NOTICE -->
+  <div style="background:#c00;color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:bold;width:100%;box-sizing:border-box;">デザインではありません。内容や構成、素材などを確認するためのものです。</div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <a href="index.html"><img src="img/header_logo.png" alt="株式会社IHIパーキングスクエア" class="logo"></a>
+      <nav>
+        <a href="about.html">私たちを知る</a>
+        <a href="jobs.html">仕事を知る</a>
+        <a href="people.html" class="active">人を知る</a>
+        <a href="environment-welfare.html">福利厚生</a>
+        <a href="environment-local.html">地方での働き方</a>
+        <a href="students.html" target="_blank">サービスエンジニア職志望の方 <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2712px%27 viewBox=%270 -960 960 960%27 width=%2712px%27 fill=%27%231f1f1f%27%3E%3Cpath d=%27M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z%27/%3E%3C/svg%3E" style="width:12px;height:12px;vertical-align:middle;margin-left:3px;opacity:0.7;"></a>
+        <a href="recruit.html">募集要項</a>
+      </nav>
+      <a href="students.html" target="_blank" class="nav-students">高校生の方</a>
+      <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank" class="nav-entry">エントリー</a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <a href="index.html">TOP</a>
+      <span>/</span>
+      <a href="people.html">人を知る</a>
+      <span>/</span>
+      キャリアヒストリー
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container">
+      <div>
+        <div class="hero-name">田中 健太<span style="font-size:18px; color:#999;">（仮）</span></div>
+        <div class="hero-name-en">TANAKA Kenta</div>
+        <div class="hero-meta">
+          <div class="hero-meta-row">
+            <span class="hero-meta-label">所属</span>
+            <span class="hero-meta-value">設計部</span>
+          </div>
+          <div class="hero-meta-row">
+            <span class="hero-meta-label">職種</span>
+            <span class="hero-meta-value">基本設計</span>
+          </div>
+          <div class="hero-meta-row">
+            <span class="hero-meta-label">入社年</span>
+            <span class="hero-meta-value">2003年入社</span>
+          </div>
+          <div class="hero-meta-row">
+            <span class="hero-meta-label">勤務地</span>
+            <span class="hero-meta-value">沼津</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-photo img">人物メイン写真</div>
+    </div>
+  </div>
+
+  <!-- 入社動機 -->
+  <div class="section">
+    <div class="container">
+      <div class="qa-block">
+        <div class="qa-image img">入社動機 写真</div>
+        <div>
+          <div class="qa-num">入社動機</div>
+          <div class="qa-question">「上流で設計を決める仕事」への憧れ</div>
+          <div class="qa-answer">機械系の学部で学ぶなかで、製品の性能や形を最初に決める「基本設計」という工程に強く惹かれた。IHIパーキングスクエアを選んだのは、機械式駐車装置という生活インフラを扱いながら、設計の最上流から関われる環境があったから。IHIグループとしての技術的な厚みと、コンパクトな組織ゆえに若手でも早期に裁量を持てる点が、決め手になった。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 現在の仕事内容 -->
+  <div class="section section-gray">
+    <div class="container">
+      <div class="qa-block">
+        <div>
+          <div class="qa-num">現在の仕事内容</div>
+          <div class="qa-question">設計部門全体の品質と方向を担う</div>
+          <div class="qa-answer">現在は基本設計部門の課長として、部門全体の品質・工数・コストを統括しながら、設計プロセスの標準化と若手育成を推進している。個別案件の設計判断に関わりながら、組織として安定した成果を出す仕組みをつくることが今の主な役割だ。若手のレビューで「なぜそう決めるのか」を言語化する作業が、自分の設計思想を整理するうえでも大きな意味を持っている。</div>
+        </div>
+        <div class="qa-image img">現在の仕事 写真</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Steps 01-05 -->
+  <div class="section">
+    <div class="container">
+      <div style="border: 1px solid #d0d0d0;">
+
+        <div style="padding: 48px; border-bottom: 1px solid #d0d0d0;">
+          <div class="step-block">
+            <div class="qa-num">Step 01</div>
+            <div class="step-year">入社1年目</div>
+            <div class="step-meta">設計部 基本設計課 ／ 設計員</div>
+            <div class="qa-question">機械式駐車装置の基本仕様検討（補助）</div>
+            <div class="qa-answer">先輩設計員のもとで、顧客要求を受け取り製品仕様に落とし込む基本設計の流れを体得した1年。「ここで決めた仕様が詳細設計・施工まで全部に影響する」という重みを早い段階で叩き込まれた。顧客との打ち合わせに同行するたびに、要求が言葉にならないまま積み上がっていく現場を目の当たりにし、「整理する力」こそが基本設計の本質だと気づき始めた。</div>
+          </div>
+        </div>
+
+        <div style="padding: 48px; border-bottom: 1px solid #d0d0d0;">
+          <div class="step-block">
+            <div class="qa-num">Step 02</div>
+            <div class="step-year">入社4年目</div>
+            <div class="step-meta">設計部 基本設計課 ／ 設計員</div>
+            <div class="qa-question">タワーパーキング基本設計（単独担当）</div>
+            <div class="qa-answer">初めて一人で基本設計を担当し、顧客折衝から社内設計レビューまでを主体的に進めた。仕様確定後に顧客要求が変わるという壁に直面し、変更管理と関係者調整の重要性を骨身に沁みて学んだ。「設計変更は設計者の責任」という意識が、この失敗を通じて完全に染みついた。完成した仕様書を初めて自分の名前で提出したときの緊張と誇りは、今も設計への向き合い方の軸になっている。</div>
+          </div>
+        </div>
+
+        <div style="padding: 48px; border-bottom: 1px solid #d0d0d0;">
+          <div class="step-block">
+            <div class="qa-num">Step 03</div>
+            <div class="step-year">入社9年目</div>
+            <div class="step-meta">設計部 基本設計課 ／ 主任設計員</div>
+            <div class="qa-question">大型商業施設向け超高層タワーパーキング基本設計</div>
+            <div class="qa-answer">地上20階超の大型案件を主導。構造・機械・電気の各専門部門と連携しながら基本仕様を取りまとめ、コスト・性能・納期をバランスさせる判断力が問われた。プロジェクトが竣工したとき、東京のスカイラインに自分の設計が刻まれていることを実感した。あの規模の案件を動かす重さを知ったことで、「基本設計の判断がいかに多くの人の仕事を決定するか」を身をもって理解できた転換点だった。</div>
+          </div>
+        </div>
+
+        <div style="padding: 48px; border-bottom: 1px solid #d0d0d0;">
+          <div class="step-block">
+            <div class="qa-num">Step 04</div>
+            <div class="step-year">入社15年目</div>
+            <div class="step-meta">設計部 基本設計グループ ／ 主査</div>
+            <div class="qa-question">次世代EV対応パーキング 基本仕様策定</div>
+            <div class="qa-answer">EV充電インフラを統合した次世代パーキングの基本仕様策定プロジェクトをリード。社外の電機メーカーや施設オーナーとの協議を重ね、業界標準となりうる設計指針をまとめ上げた。技術の先端にいる手応えを感じた転換点。「これまでの駐車場設計の常識を問い直す仕事」という意識が、毎日の議論をどんなに難しくても前向きにさせてくれた。</div>
+          </div>
+        </div>
+
+        <div style="padding: 48px;">
+          <div class="step-block">
+            <div class="qa-num">Step 05</div>
+            <div class="step-year">入社23年目（現在）</div>
+            <div class="step-meta">設計部 ／ 課長</div>
+            <div class="qa-question">基本設計部門統括・設計標準化推進</div>
+            <div class="qa-answer">基本設計部門全体の品質・工数・コストを統括しながら、設計プロセスの標準化と若手育成を推進している。20年超の経験で培った「上流で正しく決める」という哲学を、次世代に引き継ぐことが今の最大のミッション。若手の設計レビューで「なぜこう決めるのか」を言語化する作業が、自分の設計思想を整理するうえでも大きな意味を持っている。教えることが、最終的には自分を一番成長させてくれる。</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM PHOTO -->
+  <div style="text-align: center; padding: 80px 40px 64px; max-width: 700px; margin: 0 auto;">
+    <div class="qa-num" style="justify-content: center;">今後挑戦したいこと・夢</div>
+    <div class="qa-question">次世代パーキングの設計標準をつくりたい</div>
+    <div class="qa-answer">EV化・自動運転・スマートシティといった変化が、駐車場設計のあり方を根本から変えようとしている。そのなかで、IP2として業界標準となる設計指針を打ち立てることが、今後の大きな目標だ。20年以上蓄積してきた設計ノウハウを体系化し、次の世代が自信を持って判断できる環境を残すことが、自分のキャリアの集大成になると思っている。</div>
+  </div>
+  <div class="container" style="padding-bottom: 80px;">
+    <div class="img" style="aspect-ratio: 2/1; width: 100%;">メイン写真（横長）</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <a href="index.html" style="font-size:12px; font-weight:bold; text-decoration:none; color:#333;">株式会社IHIパーキングスクエア</a>
+      <nav>
+        <a href="about.html">私たちを知る</a>
+        <a href="jobs.html">仕事を知る</a>
+        <a href="people.html">人を知る</a>
+        <a href="environment-welfare.html">働く環境・制度</a>
+        <a href="students.html" target="_blank">サービスエンジニア職志望の方</a>
+        <a href="recruit.html">募集要項</a>
+        <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank">エントリー</a>
+      </nav>
+      <p>&copy; 株式会社IHIパーキングスクエア</p>
+    </div>
+  </footer>
+
+</body>
+</html>

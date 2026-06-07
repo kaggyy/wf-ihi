@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>私たちを知る｜株式会社IHIパーキングスクエア</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Crimson+Pro:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', sans-serif; color: #333; background: #fff; font-size: 16px; line-height: 1.8; }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      border-bottom: 1px solid #ccc;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+    }
+    header .container {
+      max-width: none;
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .logo { display: block; height: 32px; width: auto; }
+    nav { display: flex; gap: 20px; }
+    header nav { position: absolute; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 20px; pointer-events: none; }
+    header nav a, header nav div { pointer-events: auto; }
+    header .nav-students { margin-left: auto; margin-right: 10px; }
+    nav a { text-decoration: none; color: #333; font-size: 14px; font-family: 'Crimson Pro', serif; letter-spacing: 0; }
+    nav a.active { border-bottom: 2px solid #003E92; padding-bottom: 2px; color: #003E92; }
+    nav a:hover { color: #003E92; text-decoration: none; }
+    .nav-entry {
+      background: #003E92;
+      color: #fff;
+      padding: 8px 20px;
+      text-decoration: none;
+      font-size: 14px;
+      font-family: 'Crimson Pro', serif;
+      letter-spacing: 0;
+    }
+    .nav-entry:hover { background: #002070; }
+    .nav-students { border: 1px solid #003E92; color: #003E92; background: transparent; padding: 8px 20px; text-decoration: none; font-size: 14px; font-family: 'Crimson Pro', serif; }
+    .nav-students:hover { background: #e8eef8; }
+    /* NAV DROPDOWN */
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown-trigger { color: #333; font-size: 14px; font-family: 'Crimson Pro', serif; cursor: default; }
+    .nav-dropdown-trigger::after { content: ' ▾'; font-size: 10px; }
+    .nav-dropdown-trigger.active { border-bottom: 2px solid #003E92; padding-bottom: 2px; color: #003E92; }
+    .nav-dropdown:hover .nav-dropdown-trigger { color: #003E92; }
+    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border: 1px solid #e0e0e0; min-width: 160px; z-index: 200; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 10px 16px; font-size: 13px; color: #333; text-decoration: none; font-family: 'Noto Sans JP', sans-serif; white-space: nowrap; border-bottom: 1px solid #f0f0f0; }
+    .nav-dropdown-menu a:last-child { border-bottom: none; }
+    .nav-dropdown-menu a:hover { background: #f7f8fa; color: #003E92; }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb-bar {
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .breadcrumb-bar .container {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      font-size: 11px;
+      color: #999;
+    }
+    .breadcrumb-bar a { color: #999; text-decoration: none; }
+    .breadcrumb-bar a:hover { text-decoration: underline; }
+    .breadcrumb-bar span { margin: 0 6px; }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {}
+    .page-hero .container {
+      padding-top: 48px;
+      padding-bottom: 40px;
+    }
+    .page-hero .en { font-family: 'Crimson Pro', serif; font-size: 18px; font-weight: 500; letter-spacing: 0; color: #003E92; margin-bottom: 0; }
+    .page-hero .ja { font-family: 'Shippori Mincho B1', serif; font-size: 50px; font-weight: 500; color: #2E2E2E; line-height: 1.2; }
+
+    /* ===== SECTION WRAPPER ===== */
+    .section { padding: 80px 0; }
+    .section-gray { background: #f5f5f5; }
+
+    /* ===== FULL-WIDTH SECTION (gray bg) ===== */
+    .full-section { background: #f5f5f5; padding: 80px 0; }
+
+    /* ===== SECTION LABELS ===== */
+    .section-title {
+      font-family: 'Crimson Pro', serif;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0;
+      color: #003E92;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .section-headline {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      line-height: 1.4;
+    }
+    .section-lead {
+      font-size: 16px;
+      color: #555;
+      max-width: 700px;
+      margin-bottom: 48px;
+      line-height: 2;
+    }
+
+    /* ===== IMAGE PLACEHOLDER ===== */
+    .img {
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 12px;
+    }
+
+    /* ===== 2-col layout ===== */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ===== NUMBERS ===== */
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+    }
+    .number-item { background: #fff; padding: 32px 20px; text-align: center; }
+    .number-item .num { font-family: 'Crimson Pro', serif; font-size: 44px; font-weight: bold; letter-spacing: 0; line-height: 1; margin-bottom: 8px; color: #003E92; }
+    .number-item .unit { font-size: 14px; }
+    .number-item .label { font-size: 12px; color: #666; margin-top: 8px; }
+    .number-item .note { font-size: 10px; color: #999; margin-top: 4px; }
+
+    /* ===== GROUP POSITION ===== */
+    .group-box { border: 1px solid #ccc; padding: 32px; }
+    .group-box .group-label { font-size: 11px; color: #999; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .group-box .group-name { font-size: 18px; font-weight: bold; margin-bottom: 16px; line-height: 1.5; }
+    .group-box .group-body { font-size: 13px; color: #555; line-height: 2; }
+    .group-diagram {
+      background: #f5f5f5;
+      border: 1px dashed #aaa;
+      height: 200px;
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 12px;
+    }
+
+    /* ===== STRENGTHS ===== */
+    .strengths-list { display: flex; flex-direction: column; gap: 1px; background: #ccc; border: 1px solid #ccc; }
+    .strength-item {
+      background: #fff;
+      padding: 40px 32px;
+      display: grid;
+      grid-template-columns: 40px 1fr 320px;
+      gap: 32px;
+      align-items: start;
+    }
+    .strength-num { font-family: 'Crimson Pro', serif; font-size: 28px; font-weight: bold; letter-spacing: 0; color: #003E92; padding-top: 4px; }
+    .strength-title { font-size: 18px; font-weight: bold; margin-bottom: 8px; }
+    .strength-body { font-size: 16px; color: #555; line-height: 2; }
+    .strength-img { width: 100%; aspect-ratio: 4/3; }
+
+    /* ===== STRENGTH 03: ワンストップフロー ===== */
+    .strength-flow { margin-top: 24px; }
+    .strength-flow-steps { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .strength-flow-step { flex: 1 1 calc(25% - 8px); min-width: 120px; border: 1px solid #ccc; padding: 10px 16px; display: flex; align-items: center; gap: 10px; }
+    .strength-flow-step .step-num { font-family: 'Crimson Pro', serif; font-size: 13px; letter-spacing: 0; color: #999; }
+    .strength-flow-step .step-name { font-size: 13px; font-weight: bold; white-space: nowrap; }
+    .strength-flow-step .step-arrow { font-size: 10px; color: #ccc; }
+
+    /* ===== OUTLINE BUTTON ===== */
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid #333;
+      padding: 12px 40px;
+      font-size: 12px;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn-outline:hover { background: #003E92; color: #fff; border-color: #003E92; }
+
+    /* ===== FACILITY TAGS ===== */
+    .facility-tag {
+      display: inline-block;
+      border: 1px solid #ccc;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    /* ===== SERVICE ===== */
+    .service-flow { margin-bottom: 48px; }
+    .flow-title { font-size: 16px; font-weight: bold; margin-bottom: 8px; }
+    .flow-subtitle { font-size: 13px; color: #666; margin-bottom: 24px; }
+    .flow-steps { display: flex; align-items: stretch; gap: 0; margin-bottom: 48px; }
+    .flow-step { flex: 1; border: 1px solid #ccc; padding: 20px 12px; text-align: center; font-size: 12px; }
+    .flow-step + .flow-step { border-left: none; }
+    .flow-step .step-num { font-size: 10px; color: #999; margin-bottom: 6px; }
+    .flow-step .step-name { font-size: 13px; font-weight: bold; }
+
+    .service-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid #ccc; }
+    .service-card { border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 32px 24px; }
+    .service-card:nth-child(3n) { border-right: none; }
+    .service-card:nth-last-child(-n+3) { border-bottom: none; }
+    .service-cards-4col { grid-template-columns: repeat(4, 1fr); border-bottom: none; }
+    .service-cards-4col .service-card:nth-child(3n) { border-right: 1px solid #ccc; }
+    .service-cards-4col .service-card:nth-child(4n) { border-right: none; }
+    .service-cards-4col .service-card:nth-last-child(-n+4) { border-bottom: 1px solid #ccc; }
+    .service-card-img { width: 100%; aspect-ratio: 4/3; margin-bottom: 20px; }
+    .service-card-en { font-family: 'Crimson Pro', serif; font-size: 13px; letter-spacing: 0; color: #999; margin-bottom: 6px; }
+    .service-card-title { font-size: 16px; font-weight: bold; margin-bottom: 12px; }
+    .service-card-body { font-size: 13px; color: #555; line-height: 2; }
+
+    /* ===== CASE STUDIES ===== */
+    .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px; }
+    .case-card {}
+    .case-card-img { width: 100%; aspect-ratio: 4/3; margin-bottom: 12px; position: relative; }
+    .case-badge {
+      display: inline-block;
+      font-family: 'Crimson Pro', serif;
+      font-size: 12px;
+      letter-spacing: 0;
+      padding: 3px 10px;
+      border: 1px solid #ccc;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    .case-name { font-size: 14px; font-weight: bold; margin-bottom: 4px; }
+    .case-location { font-size: 11px; color: #999; margin-bottom: 8px; }
+    .case-desc { font-size: 12px; color: #555; line-height: 1.8; }
+
+    .cases-more { text-align: center; }
+    .cases-more a {
+      display: inline-block;
+      border: 1px solid #333;
+      padding: 12px 40px;
+      font-size: 12px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* ===== ENTRY CTA ===== */
+    .entry-cta { padding: 64px 0; text-align: center; background: #003E92; }
+    .entry-cta h2 { font-size: 20px; font-weight: bold; margin-bottom: 12px; }
+    .entry-cta p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 28px; }
+    .entry-cta a { display: inline-block; background: #fff; color: #003E92; padding: 14px 48px; text-decoration: none; font-size: 14px; }
+    .entry-cta a:hover { background: #e8eef8; }
+
+    /* ===== FOOTER ===== */
+    footer { border-top: 1px solid #ccc; }
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      padding-bottom: 24px;
+      font-size: 11px;
+      color: #888;
+    }
+    footer nav { display: flex; gap: 16px; }
+    footer nav a { font-size: 11px; color: #888; text-decoration: none; }
+    footer nav a:hover { color: #333; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+
+  <!-- DRAFT NOTICE -->
+  <div style="background:#c00;color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:bold;width:100%;box-sizing:border-box;">デザインではありません。内容や構成、素材などを確認するためのものです。</div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <a href="index.html"><img src="img/header_logo.png" alt="株式会社IHIパーキングスクエア" class="logo"></a>
+      <nav>
+        <a href="about.html" class="active">私たちを知る</a>
+        <a href="jobs.html">仕事を知る</a>
+        <a href="people.html">人を知る</a>
+        <a href="environment-welfare.html">福利厚生</a>
+        <a href="environment-local.html">地方での働き方</a>
+        <a href="students.html" target="_blank">サービスエンジニア職志望の方 <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2712px%27 viewBox=%270 -960 960 960%27 width=%2712px%27 fill=%27%231f1f1f%27%3E%3Cpath d=%27M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z%27/%3E%3C/svg%3E" style="width:12px;height:12px;vertical-align:middle;margin-left:3px;opacity:0.7;"></a>
+        <a href="recruit.html">募集要項</a>
+      </nav>
+      <a href="students.html" target="_blank" class="nav-students">高校生の方</a>
+      <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank" class="nav-entry">エントリー</a>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <a href="index.html">TOP</a>
+      <span>/</span>
+      私たちを知る
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="en">ABOUT</div>
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 48px;">
+        <div class="ja" style="flex-shrink: 0;">空間を、考える。</div>
+        <p style="font-size: 15px; color: #555; line-height: 2; padding-bottom: 8px; max-width: 480px; text-align: right;">私たちは100年以上の技術と実績を駆使し、スケールの大きなモノづくりを通して、社会の根幹を支えるパーキングシステムカンパニーです。</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================
+       1. キービジュアル動画
+  ========================================= -->
+  <div style="padding: 0; background: #fff;">
+    <div class="container">
+      <video width="100%" height="auto" controls style="background:#e0e0e0; display:block;">
+        <source src="img/kv_ihi.mp4" type="video/mp4">
+        キービジュアル動画
+      </video>
+    </div>
+  </div>
+
+
+  <!-- ========================================
+       2.5 VISION - 事業ビジョン
+  ========================================= -->
+  <div class="section" id="vision">
+    <div class="container">
+      <div class="section-title">VISION</div>
+      <div class="section-headline">私たちが目指すもの</div>
+
+      <div class="two-col" style="align-items: start; margin-bottom: 64px;">
+        <div>
+          <p style="font-family: 'Shippori Mincho B1', serif; font-size: 22px; font-weight: 700; line-height: 1.6; color: #2E2E2E; margin-bottom: 32px;">「社会課題や事業環境の変化に対応し、最適なソリューションをご提供。」</p>
+          <p style="font-size: 15px; color: #555; line-height: 2;">IHIパーキングスクエアは、機械式駐車装置や自走式駐車場などのパーキングシステムをご提供するリーディングカンパニーとして社会の発展に貢献しています。全てのステークホルダーの幸せに貢献すべくビジョンを策定し、その実現に向かって具体的な活動を遂行しています。社会課題や事業環境の変化に対応し、既存の技術の改善を続けながらお客さまに最適なソリューションをご提供するとともに、駐車場に限定しない事業の創出を進めていきます。</p>
+        </div>
+        <div style="border: 1px solid #ccc; padding: 40px; text-align: center;">
+          <div style="font-family: 'Crimson Pro', serif; font-size: 12px; font-weight: bold; color: #003E92; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 32px;">Division Vision</div>
+          <div style="margin-bottom: 32px;">
+            <div style="font-family: 'Noto Sans JP', sans-serif; font-size: 22px; font-weight: 700; color: #2E2E2E; margin-bottom: 8px;">「世界のまちづくりに貢献」</div>
+            <div style="font-family: 'Crimson Pro', serif; font-size: 15px; color: #555; letter-spacing: 0.05em;">― Realize your dreams ―</div>
+          </div>
+          <div>
+            <div style="font-family: 'Noto Sans JP', sans-serif; font-size: 22px; font-weight: 700; color: #2E2E2E; margin-bottom: 8px;">「働くひとりひとりの成長と幸せを」</div>
+            <div style="font-family: 'Crimson Pro', serif; font-size: 15px; color: #555; letter-spacing: 0.05em;">― Realize our dreams ―</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================
+       GROUP - IHIグループの中のIP2  (WHY)
+  ========================================= -->
+  <div class="section" id="group" style="padding-top: 27px;">
+    <div class="container">
+      <div class="section-title">GROUP</div>
+      <div class="section-headline">IHIグループの中のIP2</div>
+      <div class="two-col" style="align-items: stretch;">
+        <div>
+          <div class="group-box" style="margin-bottom: 24px;">
+            <div class="group-label">IHIグループ</div>
+            <div class="group-name">「自然と技術が調和する社会を創る」</div>
+            <div class="group-body">1853年創業の「石川島造船所」を起源とする総合重工業グループ。資源・エネルギー・環境、社会基盤、産業システム・汎用機械、航空・宇宙・防衛の4つの事業分野で、造船技術から培った独自の技術力を基にグローバルに事業を展開。</div>
+          </div>
+          <div class="group-box">
+            <div class="group-label">IP2（株式会社IHIパーキングスクエア）</div>
+            <div class="group-name">「信頼される技術でお客様に満足いただける製品・サービスを提供し社会の発展に貢献する。」</div>
+            <div class="group-body">IHIグループ売上高2位の事業グループのリーディングカンパニー。機械式駐車装置や自走式駐車場などのパーキングシステムの提供を通じて社会の発展に貢献。社会課題や事業環境の変化に対応し、既存の技術の改善を続けながらお客さまに最適なソリューションをご提供するとともに、駐車場に限定しない事業の創出を進めています。</div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; border: 1px solid #ccc; padding: 24px;">
+          <img src="img/group.png" alt="IHIグループ事業構成図" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================
+       NUMBERS - 数字で見るIP2  (WHAT)
+  ========================================= -->
+  <div class="section section-gray" id="numbers">
+    <div class="container">
+      <div class="section-title">NUMBERS</div>
+      <div class="section-headline">数字で見るIP2</div>
+      <div class="numbers-grid">
+        <div class="number-item">
+          <div class="num">1853<span class="unit" style="font-size:16px;">年</span></div>
+          <div class="label">「巻き上げ技術」の開発を始めた年</div>
+          <div class="note">技術の原点</div>
+        </div>
+        <div class="number-item">
+          <div class="num">800,000<span class="unit" style="font-size:16px;">台</span></div>
+          <div class="label">以上の納入実績</div>
+          <div class="note">累計駐車台数</div>
+        </div>
+        <div class="number-item">
+          <div class="num">100<span class="unit">m以上</span></div>
+          <div class="label">高層エレベーターパーキングの高さ</div>
+          <div class="note">スケールの大きなモノづくり</div>
+        </div>
+        <div class="number-item">
+          <div class="num">1,171<span class="unit">名</span></div>
+          <div class="label">従業員数</div>
+          <div class="note"></div>
+        </div>
+        <div class="number-item">
+          <div class="num">18.0<span class="unit">年</span></div>
+          <div class="label">平均勤続年数</div>
+          <div class="note">長く働ける環境</div>
+        </div>
+        <div class="number-item">
+          <div class="num">100<span class="unit">%</span></div>
+          <div class="label">産休・育休取得者復職率</div>
+          <div class="note"></div>
+        </div>
+        <div class="number-item">
+          <div class="num">85<span class="unit">%</span></div>
+          <div class="label">社宅の家賃補助率</div>
+          <div class="note"></div>
+        </div>
+        <div class="number-item">
+          <div class="num">73.6<span class="unit">%</span></div>
+          <div class="label">有給休暇取得率</div>
+          <div class="note">年間22日付与</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================
+       4. SERVICE - 事業紹介  (WHAT)
+  ========================================= -->
+  <div class="section" id="service">
+    <div class="container">
+      <div class="section-title">SERVICE</div>
+      <div class="section-headline">事業紹介</div>
+      <p class="section-lead">人とクルマの未来を考え、世界のまちづくりに貢献する。1962年に日本初のタワーパーキングを完成させて以来、60年以上にわたり駐車システムを開発。バリアフリー化・省エネ化・低振動技術など革新的な取り組みを重ね、電動車対応の次世代エコパーキング実現を推進しています。</p>
+
+      <!-- 対象施設 -->
+      <div style="margin-bottom: 64px;">
+        <div class="section-headline" style="margin-bottom: 24px; font-size: 20px;">例えばこんな施設に利用されています</div>
+        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;">
+          <div style="border: 1px solid #e0e0e0;">
+            <div class="img" style="width: 100%; aspect-ratio: 4/3; font-size: 10px;">商業施設 写真</div>
+            <div style="padding: 8px 10px; font-size: 12px; font-weight: bold;">商業施設</div>
+          </div>
+          <div style="border: 1px solid #e0e0e0;">
+            <div class="img" style="width: 100%; aspect-ratio: 4/3; font-size: 10px;">複合ビル 写真</div>
+            <div style="padding: 8px 10px; font-size: 12px; font-weight: bold;">複合ビル</div>
+          </div>
+          <div style="border: 1px solid #e0e0e0;">
+            <div class="img" style="width: 100%; aspect-ratio: 4/3; font-size: 10px;">ホテル 写真</div>
+            <div style="padding: 8px 10px; font-size: 12px; font-weight: bold;">ホテル</div>
+          </div>
+          <div style="border: 1px solid #e0e0e0;">
+            <div class="img" style="width: 100%; aspect-ratio: 4/3; font-size: 10px;">病院 写真</div>
+            <div style="padding: 8px 10px; font-size: 12px; font-weight: bold;">病院</div>
+          </div>
+          <div style="border: 1px solid #e0e0e0;">
+            <div class="img" style="width: 100%; aspect-ratio: 4/3; font-size: 10px;">オフィスビル 写真</div>
+            <div style="padding: 8px 10px; font-size: 12px; font-weight: bold;">オフィスビル</div>
+          </div>
+          <div style="border: 1px solid #e0e0e0;">
+            <div class="img" style="width: 100%; aspect-ratio: 4/3; font-size: 10px;">マンション 写真</div>
+            <div style="padding: 8px 10px; font-size: 12px; font-weight: bold;">マンション</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- パーキングシステム製品 -->
+      <div style="margin-bottom: 64px;">
+        <div class="section-headline" style="margin-bottom: 40px; font-size: 20px;">私たちの製品</div>
+
+        <!-- 1段目：4カラム -->
+        <div class="service-cards service-cards-4col">
+          <div class="service-card">
+            <img src="https://www.iuk.co.jp/parking/kikaishiki/wordpress/wp-content/themes/ips_kikaishiki_v1/assets/img/portal/portal0201.jpg" class="service-card-img" style="object-fit:cover; display:block;" alt="エレベータパーキング">
+            <div class="service-card-title">エレベータパーキング</div>
+            <div class="service-card-body">省エネルギーで低騒音・低振動を実現したエレベータ方式の機械式駐車装置。昇降速度は最大毎分120mで平均出庫待ち時間は約2分15秒。屋外45m・屋内100m程度まで対応し、ハイルーフ車も収容可能。</div>
+          </div>
+          <div class="service-card">
+            <img src="https://www.iuk.co.jp/parking/kikaishiki/wordpress/wp-content/themes/ips_kikaishiki_v1/assets/img/portal/portal0202.jpg" class="service-card-img" style="object-fit:cover; display:block;" alt="超高層エレベータパーキング">
+            <div class="service-card-title">超高層エレベータパーキング</div>
+            <div class="service-card-body">高層建物の空間部分を有効活用した収容効率の高いパーキングシステム。昇降スピードは最大毎分180mで混雑時でも迅速対応。バリアフリーオプション対応。</div>
+          </div>
+          <div class="service-card">
+            <img src="https://www.iuk.co.jp/parking/kikaishiki/wordpress/wp-content/themes/ips_kikaishiki_v1/assets/img/portal/portal0203.jpg" class="service-card-img" style="object-fit:cover; display:block;" alt="フォークパーキング">
+            <div class="service-card-title">フォークパーキング</div>
+            <div class="service-card-body">くし型搬送システムによりスピーディな入出庫を実現。業界初のワイヤーロープ採用で低騒音・低振動を達成。平均出庫待ち時間は約1分5秒と業界最高水準。</div>
+          </div>
+          <div class="service-card">
+            <img src="https://www.iuk.co.jp/parking/kikaishiki/wordpress/wp-content/themes/ips_kikaishiki_v1/assets/img/portal/portal0204.jpg" class="service-card-img" style="object-fit:cover; display:block;" alt="タワーパーキング">
+            <div class="service-card-title">タワーパーキング</div>
+            <div class="service-card-body">1962年に日本初の納入実績を持つ垂直循環方式の主力製品。エンドレスチェーンで次々と入庫が可能で、故障の少ないシンプルな構造が強み。平均出庫待ち時間は約1分35秒。</div>
+          </div>
+        </div>
+        <!-- 2段目：3カラム -->
+        <div class="service-cards">
+          <div class="service-card">
+            <img src="https://www.iuk.co.jp/parking/kikaishiki/wordpress/wp-content/themes/ips_kikaishiki_v1/assets/img/portal/portal0205.jpg" class="service-card-img" style="object-fit:cover; display:block;" alt="スーパースクエアパーキング">
+            <div class="service-card-title">スーパースクエアパーキング</div>
+            <div class="service-card-body">地下空間の形状に合わせて柔軟にレイアウトできる水平循環方式。独自アルゴリズムで最短入出庫ルートを計算し低騒音・低振動を実現。フラットパレット標準装備で車椅子利用者にも対応。</div>
+          </div>
+          <div class="service-card">
+            <img src="https://www.iuk.co.jp/parking/kikaishiki/wordpress/wp-content/themes/ips_kikaishiki_v1/assets/img/portal/portal0206.jpg" class="service-card-img" style="object-fit:cover; display:block;" alt="大規模スーパースクエアパーキング">
+            <div class="service-card-title">大規模スーパースクエアパーキング</div>
+            <div class="service-card-body">独自アルゴリズムで待ち時間を従来機種より約25%削減した大規模対応モデル。全長5.3m・全幅2.05m・全高2.1m・重量2.6tまで対応し、SUVや大型車も収容。平均出庫時間は約2分。</div>
+          </div>
+          <div class="service-card">
+            <img src="https://www.iuk.co.jp/parking/jisoshiki/wordpress/wp-content/uploads/2023/02/portal_link01.jpg" class="service-card-img" style="object-fit:cover; display:block;" alt="自走式駐車場">
+<div class="service-card-title">自走式駐車場</div>
+            <div class="service-card-body">太陽光発電を壁面・屋上に設置しEV充電や照明に活用。壁面・屋上緑化によるCO2削減も実現。環境配慮型・EV対応・防災対応など用途に応じた多様な設計に対応。</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <!-- ========================================
+       STRENGTHS - IP2の特徴・魅力  (HOW)
+  ========================================= -->
+  <div class="full-section" id="strengths">
+    <div class="container">
+      <div class="section-title">STRENGTHS</div>
+      <div class="section-headline">IP2の特徴・魅力</div>
+      <div class="strengths-list">
+        <div class="strength-item">
+          <div class="strength-num">01</div>
+          <div>
+            <div class="strength-title">IHIグループとしての安定した事業基盤</div>
+            <div class="strength-body">日本を代表する総合重工業グループ「IHI」の一員として、高度な技術力と強固な経営基盤を有しています。社会インフラを支える事業特性から、多方面より厚い信頼があり、将来にわたって安心してキャリアを形成できる環境が整っています。</div>
+          </div>
+          <img src="https://www.iuk.co.jp/wordpress/wp-content/themes/iuk/img/company_mv_img.png" class="strength-img" alt="IHIパーキングスクエア本社ビル" style="object-fit:cover;">
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">02</div>
+          <div>
+            <div class="strength-title">リーディングカンパニーとしての実績と信頼</div>
+            <div class="strength-body">1962年に日本で初めてタワーパーキングを納入した業界のパイオニア。半世紀以上にわたる納入実績とノウハウが蓄積されており、都市部の限られた土地を有効活用する立体駐車場の分野で、国内トップクラスのシェアを誇ります。</div>
+          </div>
+          <img src="https://www.iuk.co.jp/wordpress/wp-content/themes/iuk/img/business_img02.png" class="strength-img" alt="施工現場・改修工事" style="object-fit:cover;">
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">03</div>
+          <div>
+            <div class="strength-title">企画から運営まで「ワンストップサービス」体制</div>
+            <div class="strength-body">パーキングシステムのライフサイクル全てを自社で完結できるのが強み。設置後のアフターサービスやリニューアルまで一貫して手掛けることで、顧客と長期的な信頼関係を築いています。</div>
+            <div class="strength-flow">
+              <div class="strength-flow-steps">
+                <div class="strength-flow-step"><span class="step-num">01</span><span class="step-name">企画・開発</span></div>
+                <div class="strength-flow-step"><span class="step-num">02</span><span class="step-name">設計</span></div>
+                <div class="strength-flow-step"><span class="step-num">03</span><span class="step-name">製造</span></div>
+                <div class="strength-flow-step"><span class="step-num">04</span><span class="step-name">提供・納入</span></div>
+                <div class="strength-flow-step"><span class="step-num">05</span><span class="step-name">メンテナンス</span></div>
+                <div class="strength-flow-step"><span class="step-num">06</span><span class="step-name">改修・更新</span></div>
+                <div class="strength-flow-step"><span class="step-num">07</span><span class="step-name">運営管理</span></div>
+              </div>
+            </div>
+          </div>
+          <img src="img/AdobeStock_1260389953.jpeg" class="strength-img" alt="ワンストップサービス体制" style="object-fit:cover;">
+        </div>
+        <div class="strength-item">
+          <div class="strength-num">04</div>
+          <div>
+            <div class="strength-title">人を大切にし、育てる文化</div>
+            <div class="strength-body">入社1年目は先輩社員が教育・指導にあたる「職場指導員制度」を実施。2年目以降も部門ごとのOJTを中心に、充実した人材育成の仕組みを整えています。</div>
+            <a href="environment-welfare.html" class="btn-outline" style="margin-top:20px;">福利厚生について知る</a>
+          </div>
+          <img src="img/AdobeStock_1536029778.jpeg" class="strength-img" alt="人を大切にし、育てる文化" style="object-fit:cover;">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================
+       FACTORY - 製造拠点（沼津）
+  ========================================= -->
+  <div class="section" id="factory">
+    <div class="container">
+      <div class="section-title">FACTORY</div>
+      <div class="section-headline">製造拠点（沼津工場）</div>
+      <div style="display: grid; grid-template-columns: 360px 1fr; gap: 48px; align-items: start;">
+        <img src="img/factories_numazu_img1.png" style="width:100%; aspect-ratio:16/9; object-fit:cover; display:block;" alt="沼津メカトロセンター">
+        <div>
+          <div class="strength-body">静岡県沼津市の「沼津メカトロセンター」が生産拠点。技術者が集約された拠点にはテストタワーや実証実験施設が整備され、新製品の開発・検証を一貫して行います。都市部とは異なる環境の中で、ものづくりに深く関わるキャリアを積むことができます。</div>
+          <a href="environment-local.html" class="btn-outline" style="margin-top:24px;">地方での働き方</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================
+       FUTURE - 新規事業
+  ========================================= -->
+  <div class="section" id="future">
+    <div class="container">
+      <div class="section-title">FUTURE</div>
+      <div class="section-headline">IP2の未来</div>
+      <div style="display: grid; grid-template-columns: 360px 1fr; gap: 48px; align-items: start;">
+        <img src="img/ppp03.jpg" style="width:100%; aspect-ratio:16/9; object-fit:cover; display:block;" alt="新規事業">
+        <div>
+          <div class="service-card-title" style="margin-bottom:12px; font-size: 20px;">新規事業</div>
+          <div class="service-card-body">空飛ぶクルマの離着陸場開発、PPP/PFI（官民連携）事業、IoTを活用したBaaS駐車場システム（スマートゲート・予約機能）など、駐車場の枠を超えた新たな領域への展開を積極的に推進しています。</div>
+          <a href="https://www.iuk.co.jp/parking/jisoshiki/future/" class="btn-outline" style="margin-top:16px;" target="_blank">IP2の未来について知る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ENTRY CTA -->
+  <div class="entry-cta">
+    <p>株式会社IHIパーキングスクエアへのエントリーはこちらから</p>
+    <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank">エントリーする</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <a href="index.html" style="font-size:12px; font-weight:bold; text-decoration:none; color:#333;">株式会社IHIパーキングスクエア</a>
+      <nav>
+        <a href="about.html">私たちを知る</a>
+        <a href="jobs.html">仕事を知る</a>
+        <a href="people.html">人を知る</a>
+        <a href="environment-welfare.html">働く環境・制度</a>
+        <a href="students.html" target="_blank">サービスエンジニア職志望の方 <img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 height=%2712px%27 viewBox=%270 -960 960 960%27 width=%2712px%27 fill=%27%231f1f1f%27%3E%3Cpath d=%27M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z%27/%3E%3C/svg%3E" style="width:12px;height:12px;vertical-align:middle;margin-left:3px;opacity:0.7;"></a>
+        <a href="recruit.html">募集要項</a>
+        <a href="https://mypage.3030.i-webs.jp/iuk2027/applicant/login/baitai-entry/entrycd/IUK" target="_blank">エントリー</a>
+      </nav>
+      <p>&copy; 株式会社IHIパーキングスクエア</p>
+    </div>
+  </footer>
+
+</body>
+</html>
